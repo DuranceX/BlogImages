@@ -39,10 +39,13 @@ export default function CollectionPage({ params }: CollectionPageProps) {
     async function loadCollectionPhotos() {
       try {
         setLoading(true)
-        const collectionName = await getCollectionNameFromSlug(resolvedParams.slug)
+        const decodedSlug = decodeURIComponent(resolvedParams.slug)
+        const collectionName = await getCollectionNameFromSlug(decodedSlug)
         setCollectionName(collectionName)
         
+        console.log('Loading photos for collection:', collectionName, 'from slug:', decodedSlug)
         const collectionPhotos = await getPhotosByCollection(collectionName)
+        console.log('Found photos:', collectionPhotos.length)
         setPhotos(collectionPhotos)
         setError(null)
       } catch (err) {
@@ -74,7 +77,7 @@ export default function CollectionPage({ params }: CollectionPageProps) {
         />
         <div className="fixed inset-0 bg-black/85" />
 
-        <header className="bg-black/40 backdrop-blur-sm border-b border-neutral-800 sticky top-0 relative">
+        <header className="bg-black/40 backdrop-blur-sm border-b border-neutral-800 sticky top-0">
           <div className="container mx-auto px-6 py-4">
             <nav className="flex items-center justify-center space-x-6">
               <Link href="/" className="text-lg font-medium text-neutral-400 hover:text-neutral-300 transition-colors">

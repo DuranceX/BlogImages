@@ -59,10 +59,23 @@ function getGalleryIndexUrl(): string {
 }
 
 /**
- * 从远程JSON文件获取画廊数据
+ * 从JSON文件获取画廊数据（优先使用本地，然后尝试远程）
  */
 export async function fetchGalleryData(): Promise<GalleryData> {
   try {
+    // 首先尝试从本地文件加载
+    try {
+      const localResponse = await fetch('/gallery-index.json')
+      if (localResponse.ok) {
+        const data: GalleryData = await localResponse.json()
+        console.log('Loaded gallery data from local file')
+        return data
+      }
+    } catch (localError) {
+      console.log('Local gallery data not found, trying remote...')
+    }
+    
+    // 本地文件不存在或加载失败时，尝试从远程加载
     const indexUrl = getGalleryIndexUrl()
     console.log('Fetching gallery data from:', indexUrl)
     
@@ -203,11 +216,14 @@ export async function getCollections(): Promise<Collection[]> {
 }
 
 /**
- * 根据合集名称获取照片
+ * 根据合集名称获取照片（大小写不敏感）
  */
 export async function getPhotosByCollection(collectionName: string): Promise<Photo[]> {
   const photos = await getPhotos()
-  return photos.filter(photo => photo.collection === collectionName)
+  return photos.filter(photo => 
+    photo.collection && 
+    photo.collection.toLowerCase() === collectionName.toLowerCase()
+  )
 }
 
 /**
@@ -259,12 +275,11 @@ function formatTagName(tag: string): string {
 }
 
 /**
- * 生成collection的URL友好slug
+ * 生成collection的URL友好slug（大小写不敏感）
  */
 export function generateCollectionSlug(collectionName: string): string {
-  // 现在collectionName已经是简洁的名称了，直接使用
+  // 现在collectionName已经是简洁的名称了，直接使用，保持大小写
   return collectionName
-    .toLowerCase()
     .replace(/\s+/g, '-')
     .replace(/[^\w\u4e00-\u9fff-]/g, '')
     .replace(/-+/g, '-')
@@ -272,21 +287,33 @@ export function generateCollectionSlug(collectionName: string): string {
 }
 
 /**
- * 从slug还原collection名称
+ * 从slug还原collection名称（大小写不敏感匹配）
  */
 export async function getCollectionNameFromSlug(slug: string): Promise<string> {
   try {
     // 获取所有合集数据
     const collections = await getCollections()
     
-    // 查找匹配的合集
+    // 查找匹配的合集（大小写不敏感）
     for (const collection of collections) {
       const collectionSlug = generateCollectionSlug(collection.name)
-      if (collectionSlug === slug) {
+      if (collectionSlug.toLowerCase() === slug.toLowerCase()) {
         return collection.name
       }
     }
-    // 如果没找到，尝试简单的解码和替换
+    
+    // 如果没找到精确匹配，尝试模糊匹配
+    for (const collection of collections) {
+      const normalizedCollectionName = collection.name.toLowerCase().replace(/\s+/g, '-')
+      const normalizedSlug = slug.toLowerCase()
+      if (normalizedCollectionName === normalizedSlug || 
+          normalizedCollectionName.includes(normalizedSlug) ||
+          normalizedSlug.includes(normalizedCollectionName)) {
+        return collection.name
+      }
+    }
+    
+    // 如果还没找到，尝试简单的解码和替换
     return decodeURIComponent(slug).replace(/-/g, ' ')
   } catch (error) {
     console.error('Error getting collection name from slug:', error)

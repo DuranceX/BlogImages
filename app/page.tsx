@@ -2,7 +2,7 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
-import { getPhotos, type Photo } from "@/lib/gallery-data"
+import { type Photo } from "@/lib/gallery-data"
 import PhotoGrid from "@/components/photo-grid"
 
 // 添加自定义CSS样式
@@ -31,13 +31,28 @@ export default function NewestPhotosPage() {
     async function loadPhotos() {
       try {
         setLoading(true)
-        const galleryPhotos = await getPhotos()
+        console.log('Starting to load gallery data...')
         
-        setPhotos(galleryPhotos)
+        // 直接从本地JSON文件加载数据
+        const response = await fetch('/gallery-index.json', {
+          cache: 'no-cache'
+        })
+        console.log('Fetch response status:', response.status)
+        
+        if (!response.ok) {
+          throw new Error(`Failed to load gallery data: ${response.status}`)
+        }
+        
+        const data = await response.json()
+        console.log('Loaded gallery data:', data.totalPhotos, 'photos')
+        console.log('Photos array length:', data.photos?.length)
+        
+        setPhotos(data.photos || [])
         setError(null)
       } catch (err) {
         console.error('Failed to load gallery photos:', err)
         setError(err instanceof Error ? err.message : 'Failed to load photos')
+        setPhotos([])
       } finally {
         setLoading(false)
       }
@@ -96,12 +111,18 @@ export default function NewestPhotosPage() {
           </div>
         )}
         
-        <PhotoGrid
-          initialPhotos={photos}
-          selectedCategory="All"
-          onCategoryClick={handleCategoryClick}
-          key="all-photos"
-        />
+        {loading ? (
+          <div className="relative z-50 mx-auto max-w-4xl px-6 py-20 text-center">
+            <div className="text-white text-lg">加载照片中...</div>
+          </div>
+        ) : (
+          <PhotoGrid
+            initialPhotos={photos}
+            selectedCategory="All"
+            onCategoryClick={handleCategoryClick}
+            key="all-photos"
+          />
+        )}
       </div>
     </>
   )

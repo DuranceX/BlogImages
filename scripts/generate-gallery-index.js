@@ -4,6 +4,13 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
+let sharp;
+try {
+  sharp = require('sharp');
+} catch (error) {
+  console.log('Sharp not available, using fallback dimensions');
+}
+
 // 支持的图片格式
 const SUPPORTED_FORMATS = ['.jpg', '.jpeg', '.png', '.webp', '.gif'];
 
@@ -67,42 +74,109 @@ function extractDisplayName(path) {
 function generateTitleFromFilename(filename) {
   const nameWithoutExt = path.parse(filename).name;
   
-  // 移除常见的图片命名前缀/后缀
-  let cleaned = nameWithoutExt
-    .replace(/^(img|image|photo|pic|dsc|frame|capture|screenshot|scene|character|story|game|pal7?)[-_]?/i, '')
-    .replace(/[-_]?(edited|final|export)$/i, '');
+  // 分割文件名，识别标签
+  const parts = nameWithoutExt.split(/[-_]/);
   
-  // 如果移除前缀后还有内容，提取标签部分作为标题
-  if (cleaned) {
-    const parts = cleaned.split(/[-_]/);
-    // 过滤掉数字和常见无意义词汇，保留有意义的标签
-    const meaningfulParts = parts.filter(part => 
-      part && 
-      part.length > 1 && 
-      !/^\d+$/.test(part) && 
-      !['copy', 'final', 'edit', 'new'].includes(part.toLowerCase())
-    );
-    
-    if (meaningfulParts.length > 0) {
-      // 使用第一个有意义的标签作为标题
-      const title = meaningfulParts[0];
-      return formatTagName(title);
-    }
+  // 如果只有一个部分，直接返回
+  if (parts.length <= 1) {
+    return nameWithoutExt;
   }
   
-  // 如果没有找到有意义的内容，生成一个简单的编号标题
-  const collectionMatch = filename.match(/\/([\u4e00-\u9fff\w\s]+)\//);
-  const collectionName = collectionMatch ? collectionMatch[1] : '照片';
+  // 构建标题：保留前缀和数字，移除标签
+  let titleParts = [];
+  let foundMeaningfulContent = false;
   
-  // 从文件名中提取数字作为编号
-  const numberMatch = nameWithoutExt.match(/\d+/);
-  const number = numberMatch ? numberMatch[0] : Math.floor(Math.random() * 999) + 1;
+  for (let i = 0; i < parts.length; i++) {
+    const part = parts[i].trim();
+    
+    if (!part) continue;
+    
+    // 保留前缀（如DSC、Frame、IMG等）
+    if (i === 0) {
+      titleParts.push(part);
+      foundMeaningfulContent = true;
+      continue;
+    }
+    
+    // 保留数字
+    if (/^\d+$/.test(part)) {
+      titleParts.push(part);
+      foundMeaningfulContent = true;
+      continue;
+    }
+    
+    // 跳过标签（有意义的词汇，用于分类）
+    if (part.length > 1 && 
+        !['copy', 'final', 'edit', 'new', 'edited', 'export'].includes(part.toLowerCase())) {
+      // 这些是标签，不加入标题
+      continue;
+    }
+    
+    // 保留其他内容（如copy、final等后缀）
+    titleParts.push(part);
+  }
   
-  return `${collectionName} ${number}`;
+  // 如果有构建的标题，使用它
+  if (foundMeaningfulContent && titleParts.length > 0) {
+    return titleParts.join(' ');
+  }
+  
+  // 如果没有找到有意义的内容，使用完整的原始名称
+  return nameWithoutExt;
+}
+
+// 获取图片信息（尺寸和文件大小）
+async function getImageInfo(filePath) {
+  try {
+    const stat = fs.statSync(filePath);
+    const fileSizeBytes = stat.size;
+    
+    // 格式化文件大小
+    const formatFileSize = (bytes) => {
+      if (bytes === 0) return '0 B';
+      const k = 1024;
+      const sizes = ['B', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+    };
+    
+    let width = 1200;
+    let height = 800;
+    
+    // 如果有sharp库，获取真实的图片尺寸
+    if (sharp) {
+      try {
+        const metadata = await sharp(filePath).metadata();
+        width = metadata.width || 1200;
+        height = metadata.height || 800;
+      } catch (sharpError) {
+        console.log(`Failed to get dimensions for ${filePath}:`, sharpError.message);
+        // 使用合理的随机尺寸作为fallback
+        width = null;
+        height = null;
+      }
+    } else {
+      // 没有sharp时使用合理的随机尺寸
+      width = null;
+      height = null;
+    }
+    
+    return {
+      fileSize: formatFileSize(fileSizeBytes),
+      width,
+      height
+    };
+  } catch (error) {
+    return {
+      fileSize: '0 MB',
+      width: 1200,
+      height: 800
+    };
+  }
 }
 
 // 扫描目录获取图片文件
-function scanDirectory(dir, baseUrl = '') {
+async function scanDirectory(dir, baseUrl = '') {
   const photos = [];
   
   if (!fs.existsSync(dir)) {
@@ -118,7 +192,7 @@ function scanDirectory(dir, baseUrl = '') {
     
     if (stat.isDirectory()) {
       // 递归扫描子目录
-      const subPhotos = scanDirectory(fullPath, baseUrl);
+      const subPhotos = await scanDirectory(fullPath, baseUrl);
       photos.push(...subPhotos);
     } else if (stat.isFile()) {
       const ext = path.extname(item).toLowerCase();
@@ -132,6 +206,9 @@ function scanDirectory(dir, baseUrl = '') {
         // 获取文件修改时间作为拍摄时间
         const dateTaken = stat.mtime.toISOString().split('T')[0];
         
+        // 获取图片信息
+        const imageInfo = await getImageInfo(fullPath);
+        
         // 提取合集信息
         const collection = extractCollectionFromPath(relativePath);
         
@@ -141,11 +218,11 @@ function scanDirectory(dir, baseUrl = '') {
           title: generateTitleFromFilename(item),
           categories: extractTagsFromFilename(item),
           photographer: 'Unknown',
-          likes: 0, // 不再生成随机点赞数
+          likes: 0,
           description: ``,
           filename: item,
-          width: 1200, // 使用固定尺寸而不是随机
-          height: 800,
+          width: imageInfo.width,
+          height: imageInfo.height,
           exif: {
             camera: '',
             lens: '',
@@ -154,8 +231,8 @@ function scanDirectory(dir, baseUrl = '') {
             shutterSpeed: '',
             focalLength: '',
             dateTaken,
-            fileSize: '',
-            dimensions: ''
+            fileSize: imageInfo.fileSize,
+            dimensions: `${imageInfo.width} × ${imageInfo.height}`
           },
           collection: collection
         };
@@ -169,13 +246,13 @@ function scanDirectory(dir, baseUrl = '') {
 }
 
 // 运行生成器并显示详细信息
-function runGenerator(photosDir, outputFile, baseUrl) {
+async function runGenerator(photosDir, outputFile, baseUrl) {
   console.log('🚀 开始生成照片索引...\n');
   console.log(`📁 扫描目录: ${photosDir}`);
   console.log(`📄 输出文件: ${outputFile}`);
   console.log(`🌐 基础URL: ${baseUrl}\n`);
   
-  const photos = scanDirectory(photosDir, baseUrl);
+  const photos = await scanDirectory(photosDir, baseUrl);
   
   // 生成合集信息
   const collectionsMap = new Map();
@@ -241,7 +318,7 @@ function runGenerator(photosDir, outputFile, baseUrl) {
 }
 
 // 主函数
-function main() {
+async function main() {
   const args = process.argv.slice(2);
   const config = {
     photosDir: args[0] || './photos',
@@ -249,7 +326,7 @@ function main() {
     baseUrl: args[2] || 'https://raw.githubusercontent.com/DuranceX/BlogImages/main'
   };
   
-  runGenerator(config.photosDir, config.outputFile, config.baseUrl);
+  await runGenerator(config.photosDir, config.outputFile, config.baseUrl);
 }
 
 if (require.main === module) {

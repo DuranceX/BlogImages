@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2025-08-15T10:00:27.569Z",
-  "totalPhotos": 23,
+  "lastUpdated": "2025-08-15T09:54:05.499Z",
+  "totalPhotos": 22,
   "photos": [
     {
       "id": "fd119d3dde6f61ed",
@@ -108,32 +108,6 @@
         "dimensions": "1920 × 1080"
       },
       "collection": "RPG冒险"
-    },
-    {
-      "id": "2b9c09bceda15557",
-      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2024/Unsplash/Firework_test.jpg",
-      "title": "Firework",
-      "categories": [
-        "Test"
-      ],
-      "photographer": "Unknown",
-      "likes": 0,
-      "description": "",
-      "filename": "Firework_test.jpg",
-      "width": 1948,
-      "height": 2939,
-      "exif": {
-        "camera": "",
-        "lens": "",
-        "iso": "",
-        "aperture": "",
-        "shutterSpeed": "",
-        "focalLength": "",
-        "dateTaken": "2025-08-15",
-        "fileSize": "1.1 MB",
-        "dimensions": "1948 × 2939"
-      },
-      "collection": "Unsplash"
     },
     {
       "id": "8d602f5831d6e6b2",
@@ -628,13 +602,6 @@
       "displayName": "RPG冒险",
       "photoCount": 4,
       "coverImage": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2024/RPG冒险/DSC_013_serene_mage.png",
-      "lastUpdated": "2025-08-15"
-    },
-    {
-      "name": "Unsplash",
-      "displayName": "Unsplash",
-      "photoCount": 1,
-      "coverImage": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2024/Unsplash/Firework_test.jpg",
       "lastUpdated": "2025-08-15"
     },
     {

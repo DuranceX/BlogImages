@@ -46,8 +46,7 @@ export default function CollectionsPage() {
 
   const handleCollectionClick = (collectionName: string) => {
     const slug = generateCollectionSlug(collectionName)
-    const encodedSlug = encodeURIComponent(slug)
-    router.push(`/collection/${encodedSlug}`)
+    router.push(`/collection/${slug}`)
   }
 
   return (

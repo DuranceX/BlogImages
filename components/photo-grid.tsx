@@ -292,7 +292,7 @@ export default function PhotoGrid({ initialPhotos, selectedCategory, onCategoryC
 
       {isModalOpen && selectedPhoto && (
         <div
-          className={`fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 transition-all duration-300 ease-out ${
+          className={`fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 transition-all duration-300 ease-out ${
             isModalVisible ? "opacity-100" : "opacity-0"
           } ${isFullScreen ? "opacity-0 pointer-events-none" : ""}`}
           style={{
