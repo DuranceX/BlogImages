@@ -1,257 +1,635 @@
 {
-  "lastUpdated": "2025-08-15T06:26:34.258Z",
-  "totalPhotos": 8,
+  "lastUpdated": "2025-08-15T06:49:31.558Z",
+  "totalPhotos": 22,
   "photos": [
     {
-      "id": "43bc4812fc415ddc",
-      "src": "https://example.com/test-photos/2024/nature/forest_path.jpg",
-      "title": "Forest Path",
+      "id": "422083c55e660335",
+      "src": "https://images.starnight.top/test-photos/2024/RPG冒险/DSC_013_serene_mage.png",
+      "title": "DSC 013 Serene Mage",
       "categories": [
-        "Path"
+        "Serene",
+        "Mage"
       ],
       "photographer": "Unknown",
-      "likes": 418,
+      "likes": 780,
       "description": "一张精美的摄影作品，使用专业设备拍摄。",
-      "filename": "forest_path.jpg",
-      "width": 696,
-      "height": 642,
+      "filename": "DSC_013_serene_mage.png",
+      "width": 1186,
+      "height": 952,
       "exif": {
         "camera": "Canon EOS 5D Mark IV",
-        "lens": "85mm f/1.4",
-        "iso": 200,
-        "aperture": "f/1.4",
-        "shutterSpeed": "1/500",
-        "focalLength": "109mm",
-        "dateTaken": "2025-08-15",
-        "fileSize": "14.7 MB",
-        "dimensions": "3303 × 3739"
-      },
-      "collection": "test-photos/2024/nature"
-    },
-    {
-      "id": "a9d73d63f9b0b59e",
-      "src": "https://example.com/test-photos/2024/nature/mountain_sunset.jpg",
-      "title": "Mountain Sunset",
-      "categories": [
-        "Sunset"
-      ],
-      "photographer": "Unknown",
-      "likes": 634,
-      "description": "一张精美的摄影作品，使用专业设备拍摄。",
-      "filename": "mountain_sunset.jpg",
-      "width": 759,
-      "height": 1129,
-      "exif": {
-        "camera": "Olympus OM-D E-M1",
-        "lens": "85mm f/1.4",
-        "iso": 800,
-        "aperture": "f/11",
-        "shutterSpeed": "1/500",
-        "focalLength": "309mm",
-        "dateTaken": "2025-08-15",
-        "fileSize": "4.8 MB",
-        "dimensions": "3729 × 3737"
-      },
-      "collection": "test-photos/2024/nature"
-    },
-    {
-      "id": "0897d00461d490c3",
-      "src": "https://example.com/test-photos/2024/portrait/musician.jpg",
-      "title": "Musician",
-      "categories": [
-        "其他"
-      ],
-      "photographer": "Unknown",
-      "likes": 231,
-      "description": "一张精美的摄影作品，使用专业设备拍摄。",
-      "filename": "musician.jpg",
-      "width": 1575,
-      "height": 1064,
-      "exif": {
-        "camera": "Leica Q2",
-        "lens": "50mm f/1.2",
-        "iso": 3200,
+        "lens": "24-70mm f/2.8",
+        "iso": 400,
         "aperture": "f/8",
-        "shutterSpeed": "1/500",
-        "focalLength": "30mm",
+        "shutterSpeed": "1/125",
+        "focalLength": "191mm",
         "dateTaken": "2025-08-15",
-        "fileSize": "9.3 MB",
-        "dimensions": "4662 × 3836"
+        "fileSize": "14.5 MB",
+        "dimensions": "5797 × 3747"
       },
-      "collection": "test-photos/2024/portrait"
+      "collection": "test-photos/2024/RPG冒险"
     },
     {
-      "id": "0c6df71af20c874b",
-      "src": "https://example.com/test-photos/2024/travel/eiffel_tower.jpg",
-      "title": "Eiffel Tower",
+      "id": "b2bfcc54c50e84bd",
+      "src": "https://images.starnight.top/test-photos/2024/RPG冒险/DSC_020_仙女.png",
+      "title": "DSC 020 仙女",
       "categories": [
-        "Tower"
+        "仙女"
       ],
       "photographer": "Unknown",
-      "likes": 584,
+      "likes": 831,
       "description": "一张精美的摄影作品，使用专业设备拍摄。",
-      "filename": "eiffel_tower.jpg",
-      "width": 945,
-      "height": 839,
-      "exif": {
-        "camera": "Sony A7 III",
-        "lens": "28mm f/1.7",
-        "iso": 1600,
-        "aperture": "f/1.4",
-        "shutterSpeed": "1/60",
-        "focalLength": "240mm",
-        "dateTaken": "2025-08-15",
-        "fileSize": "5.4 MB",
-        "dimensions": "5781 × 2030"
-      },
-      "collection": "test-photos/2024/travel"
-    },
-    {
-      "id": "b0268d52f06bb2d3",
-      "src": "https://example.com/test-photos/2024/urban/city_lights.jpg",
-      "title": "City Lights",
-      "categories": [
-        "Lights"
-      ],
-      "photographer": "Unknown",
-      "likes": 440,
-      "description": "一张精美的摄影作品，使用专业设备拍摄。",
-      "filename": "city_lights.jpg",
-      "width": 1020,
-      "height": 1351,
+      "filename": "DSC_020_仙女.png",
+      "width": 779,
+      "height": 1077,
       "exif": {
         "camera": "Fujifilm X-T4",
-        "lens": "50mm f/1.2",
-        "iso": 100,
+        "lens": "85mm f/1.4",
+        "iso": 3200,
         "aperture": "f/8",
+        "shutterSpeed": "1/60",
+        "focalLength": "296mm",
+        "dateTaken": "2025-08-15",
+        "fileSize": "12.4 MB",
+        "dimensions": "5002 × 2263"
+      },
+      "collection": "test-photos/2024/RPG冒险"
+    },
+    {
+      "id": "41246ab1ec4ed67c",
+      "src": "https://images.starnight.top/test-photos/2024/RPG冒险/Frame_001_修仙_storm_mysterious.png",
+      "title": "Frame 001 修仙 Storm Mysterious",
+      "categories": [
+        "修仙",
+        "Storm",
+        "Mysterious"
+      ],
+      "photographer": "Unknown",
+      "likes": 968,
+      "description": "一张精美的摄影作品，使用专业设备拍摄。",
+      "filename": "Frame_001_修仙_storm_mysterious.png",
+      "width": 766,
+      "height": 678,
+      "exif": {
+        "camera": "Olympus OM-D E-M1",
+        "lens": "16-35mm f/2.8",
+        "iso": 3200,
+        "aperture": "f/1.4",
         "shutterSpeed": "1/500",
-        "focalLength": "293mm",
+        "focalLength": "218mm",
         "dateTaken": "2025-08-15",
-        "fileSize": "10.1 MB",
-        "dimensions": "3010 × 2545"
+        "fileSize": "5.3 MB",
+        "dimensions": "5185 × 3584"
       },
-      "collection": "test-photos/2024/urban"
+      "collection": "test-photos/2024/RPG冒险"
     },
     {
-      "id": "579ddaa842212c1e",
-      "src": "https://example.com/test-photos/2024/urban/street_art.jpg",
-      "title": "Street Art",
+      "id": "48a3f52328b9bdfd",
+      "src": "https://images.starnight.top/test-photos/2024/RPG冒险/Game_022_epic.png",
+      "title": "Game 022 Epic",
       "categories": [
-        "Art"
+        "Epic"
       ],
       "photographer": "Unknown",
-      "likes": 224,
+      "likes": 252,
       "description": "一张精美的摄影作品，使用专业设备拍摄。",
-      "filename": "street_art.jpg",
-      "width": 1208,
-      "height": 688,
+      "filename": "Game_022_epic.png",
+      "width": 1319,
+      "height": 1090,
       "exif": {
-        "camera": "Nikon Z7",
-        "lens": "28mm f/1.7",
-        "iso": 1600,
+        "camera": "Leica Q2",
+        "lens": "70-200mm f/2.8",
+        "iso": 3200,
         "aperture": "f/4",
-        "shutterSpeed": "1/1000",
-        "focalLength": "168mm",
+        "shutterSpeed": "1/60",
+        "focalLength": "41mm",
         "dateTaken": "2025-08-15",
-        "fileSize": "13.2 MB",
-        "dimensions": "3989 × 3914"
+        "fileSize": "8.8 MB",
+        "dimensions": "4378 × 3764"
       },
-      "collection": "test-photos/2024/urban"
+      "collection": "test-photos/2024/RPG冒险"
     },
     {
-      "id": "1bc529aecd713db9",
-      "src": "https://example.com/test-photos/2025/landscape/desert_dunes.jpg",
-      "title": "Desert Dunes",
+      "id": "b6bc572039b04fa3",
+      "src": "https://images.starnight.top/test-photos/2024/仙剑奇侠传七/Screenshot_009_mountain_江湖_serene.png",
+      "title": "Screenshot 009 Mountain 江湖 Serene",
       "categories": [
-        "Dunes"
+        "Mountain",
+        "江湖",
+        "Serene"
       ],
       "photographer": "Unknown",
-      "likes": 484,
+      "likes": 871,
       "description": "一张精美的摄影作品，使用专业设备拍摄。",
-      "filename": "desert_dunes.jpg",
-      "width": 813,
-      "height": 787,
+      "filename": "Screenshot_009_mountain_江湖_serene.png",
+      "width": 1466,
+      "height": 1201,
       "exif": {
-        "camera": "Sony A7R IV",
-        "lens": "24-70mm f/2.8",
-        "iso": 200,
-        "aperture": "f/2",
-        "shutterSpeed": "1/250",
-        "focalLength": "310mm",
+        "camera": "Sony A7 III",
+        "lens": "24-105mm f/4",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/500",
+        "focalLength": "124mm",
         "dateTaken": "2025-08-15",
-        "fileSize": "9.6 MB",
-        "dimensions": "4702 × 2921"
+        "fileSize": "13.3 MB",
+        "dimensions": "4981 × 3709"
       },
-      "collection": "test-photos/2025/landscape"
+      "collection": "test-photos/2024/仙剑奇侠传七"
     },
     {
-      "id": "465ebec6d547d2a2",
-      "src": "https://example.com/test-photos/2025/wildlife/eagle_soaring.jpg",
-      "title": "Eagle Soaring",
+      "id": "8dcef109c2ff0fb7",
+      "src": "https://images.starnight.top/test-photos/2024/仙剑奇侠传七/Story_016_mountain_landscape.png",
+      "title": "Story 016 Mountain Landscape",
       "categories": [
-        "Soaring"
+        "Mountain",
+        "Landscape"
       ],
       "photographer": "Unknown",
-      "likes": 690,
+      "likes": 77,
       "description": "一张精美的摄影作品，使用专业设备拍摄。",
-      "filename": "eagle_soaring.jpg",
-      "width": 667,
-      "height": 1319,
+      "filename": "Story_016_mountain_landscape.png",
+      "width": 621,
+      "height": 1018,
       "exif": {
-        "camera": "Canon EOS R5",
+        "camera": "Fujifilm X-T4",
         "lens": "14-24mm f/2.8",
         "iso": 800,
-        "aperture": "f/5.6",
-        "shutterSpeed": "1/250",
-        "focalLength": "254mm",
+        "aperture": "f/1.4",
+        "shutterSpeed": "1/30",
+        "focalLength": "250mm",
         "dateTaken": "2025-08-15",
-        "fileSize": "5.9 MB",
-        "dimensions": "3153 × 2433"
+        "fileSize": "7.2 MB",
+        "dimensions": "4471 × 3644"
       },
-      "collection": "test-photos/2025/wildlife"
+      "collection": "test-photos/2024/仙剑奇侠传七"
+    },
+    {
+      "id": "3fae9834987dd758",
+      "src": "https://images.starnight.top/test-photos/2024/游戏截图/Capture_008_protagonist_dawn_古风.png",
+      "title": "Capture 008 Protagonist Dawn 古风",
+      "categories": [
+        "Protagonist",
+        "Dawn",
+        "古风"
+      ],
+      "photographer": "Unknown",
+      "likes": 77,
+      "description": "一张精美的摄影作品，使用专业设备拍摄。",
+      "filename": "Capture_008_protagonist_dawn_古风.png",
+      "width": 1217,
+      "height": 734,
+      "exif": {
+        "camera": "Sony A7R IV",
+        "lens": "60mm f/2.8 Macro",
+        "iso": 400,
+        "aperture": "f/11",
+        "shutterSpeed": "1/60",
+        "focalLength": "80mm",
+        "dateTaken": "2025-08-15",
+        "fileSize": "5.0 MB",
+        "dimensions": "5459 × 3166"
+      },
+      "collection": "test-photos/2024/游戏截图"
+    },
+    {
+      "id": "74a72e2654d119f3",
+      "src": "https://images.starnight.top/test-photos/2024/游戏截图/IMG_003_city_quest_npc.png",
+      "title": "003 City Quest Npc",
+      "categories": [
+        "City",
+        "Quest",
+        "Npc"
+      ],
+      "photographer": "Unknown",
+      "likes": 489,
+      "description": "一张精美的摄影作品，使用专业设备拍摄。",
+      "filename": "IMG_003_city_quest_npc.png",
+      "width": 1583,
+      "height": 626,
+      "exif": {
+        "camera": "Nikon Z7",
+        "lens": "50mm f/1.2",
+        "iso": 400,
+        "aperture": "f/8",
+        "shutterSpeed": "1/250",
+        "focalLength": "199mm",
+        "dateTaken": "2025-08-15",
+        "fileSize": "15.3 MB",
+        "dimensions": "4953 × 3454"
+      },
+      "collection": "test-photos/2024/游戏截图"
+    },
+    {
+      "id": "1daf738036af87a3",
+      "src": "https://images.starnight.top/test-photos/2024/游戏截图/IMG_011_cutscene.png",
+      "title": "011 Cutscene",
+      "categories": [
+        "Cutscene"
+      ],
+      "photographer": "Unknown",
+      "likes": 980,
+      "description": "一张精美的摄影作品，使用专业设备拍摄。",
+      "filename": "IMG_011_cutscene.png",
+      "width": 659,
+      "height": 1133,
+      "exif": {
+        "camera": "Canon EOS R6",
+        "lens": "60mm f/2.8 Macro",
+        "iso": 3200,
+        "aperture": "f/2",
+        "shutterSpeed": "1/30",
+        "focalLength": "81mm",
+        "dateTaken": "2025-08-15",
+        "fileSize": "14.3 MB",
+        "dimensions": "5471 × 3265"
+      },
+      "collection": "test-photos/2024/游戏截图"
+    },
+    {
+      "id": "b8e2fd513a62d3de",
+      "src": "https://images.starnight.top/test-photos/2024/游戏截图/PAL7_014_rain_sunset_仙境.png",
+      "title": "PAL7 014 Rain Sunset 仙境",
+      "categories": [
+        "Rain",
+        "Sunset",
+        "仙境"
+      ],
+      "photographer": "Unknown",
+      "likes": 389,
+      "description": "一张精美的摄影作品，使用专业设备拍摄。",
+      "filename": "PAL7_014_rain_sunset_仙境.png",
+      "width": 1097,
+      "height": 976,
+      "exif": {
+        "camera": "Sony A7R IV",
+        "lens": "100mm f/2.8 Macro",
+        "iso": 3200,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/30",
+        "focalLength": "122mm",
+        "dateTaken": "2025-08-15",
+        "fileSize": "7.8 MB",
+        "dimensions": "4640 × 3426"
+      },
+      "collection": "test-photos/2024/游戏截图"
+    },
+    {
+      "id": "fc3b8a78396280b1",
+      "src": "https://images.starnight.top/test-photos/2025/游戏世界/Character_012_peaceful.png",
+      "title": "Character 012 Peaceful",
+      "categories": [
+        "Peaceful"
+      ],
+      "photographer": "Unknown",
+      "likes": 483,
+      "description": "一张精美的摄影作品，使用专业设备拍摄。",
+      "filename": "Character_012_peaceful.png",
+      "width": 914,
+      "height": 1381,
+      "exif": {
+        "camera": "Canon EOS R5",
+        "lens": "16-35mm f/2.8",
+        "iso": 800,
+        "aperture": "f/8",
+        "shutterSpeed": "1/30",
+        "focalLength": "110mm",
+        "dateTaken": "2025-08-15",
+        "fileSize": "10.7 MB",
+        "dimensions": "5529 × 3818"
+      },
+      "collection": "test-photos/2025/游戏世界"
+    },
+    {
+      "id": "965ef831e102052e",
+      "src": "https://images.starnight.top/test-photos/2025/游戏世界/Frame_018_city_cutscene_protagonist.png",
+      "title": "Frame 018 City Cutscene Protagonist",
+      "categories": [
+        "City",
+        "Cutscene",
+        "Protagonist"
+      ],
+      "photographer": "Unknown",
+      "likes": 741,
+      "description": "一张精美的摄影作品，使用专业设备拍摄。",
+      "filename": "Frame_018_city_cutscene_protagonist.png",
+      "width": 1365,
+      "height": 606,
+      "exif": {
+        "camera": "Olympus OM-D E-M1",
+        "lens": "24-70mm f/2.8",
+        "iso": 100,
+        "aperture": "f/8",
+        "shutterSpeed": "1/1000",
+        "focalLength": "225mm",
+        "dateTaken": "2025-08-15",
+        "fileSize": "5.4 MB",
+        "dimensions": "5239 × 2093"
+      },
+      "collection": "test-photos/2025/游戏世界"
+    },
+    {
+      "id": "76f6b1d0aeb3ab01",
+      "src": "https://images.starnight.top/test-photos/2025/游戏世界/PAL7_017_cutscene.png",
+      "title": "PAL7 017 Cutscene",
+      "categories": [
+        "Cutscene"
+      ],
+      "photographer": "Unknown",
+      "likes": 638,
+      "description": "一张精美的摄影作品，使用专业设备拍摄。",
+      "filename": "PAL7_017_cutscene.png",
+      "width": 1129,
+      "height": 515,
+      "exif": {
+        "camera": "Fujifilm X-T4",
+        "lens": "24-70mm f/2.8",
+        "iso": 1600,
+        "aperture": "f/8",
+        "shutterSpeed": "1/500",
+        "focalLength": "210mm",
+        "dateTaken": "2025-08-15",
+        "fileSize": "2.2 MB",
+        "dimensions": "4962 × 3140"
+      },
+      "collection": "test-photos/2025/游戏世界"
+    },
+    {
+      "id": "e68951657b6202ae",
+      "src": "https://images.starnight.top/test-photos/2025/游戏世界/Scene_006_山水.png",
+      "title": "Scene 006 山水",
+      "categories": [
+        "山水"
+      ],
+      "photographer": "Unknown",
+      "likes": 291,
+      "description": "一张精美的摄影作品，使用专业设备拍摄。",
+      "filename": "Scene_006_山水.png",
+      "width": 1469,
+      "height": 625,
+      "exif": {
+        "camera": "Canon EOS R5",
+        "lens": "50mm f/1.2",
+        "iso": 400,
+        "aperture": "f/4",
+        "shutterSpeed": "1/250",
+        "focalLength": "31mm",
+        "dateTaken": "2025-08-15",
+        "fileSize": "12.7 MB",
+        "dimensions": "5830 × 3948"
+      },
+      "collection": "test-photos/2025/游戏世界"
+    },
+    {
+      "id": "cbb3a2ff0e5ff62f",
+      "src": "https://images.starnight.top/test-photos/2025/虚拟摄影/Capture_015_cutscene.png",
+      "title": "Capture 015 Cutscene",
+      "categories": [
+        "Cutscene"
+      ],
+      "photographer": "Unknown",
+      "likes": 344,
+      "description": "一张精美的摄影作品，使用专业设备拍摄。",
+      "filename": "Capture_015_cutscene.png",
+      "width": 1495,
+      "height": 651,
+      "exif": {
+        "camera": "Canon EOS R6",
+        "lens": "14-24mm f/2.8",
+        "iso": 100,
+        "aperture": "f/2",
+        "shutterSpeed": "1/60",
+        "focalLength": "180mm",
+        "dateTaken": "2025-08-15",
+        "fileSize": "3.0 MB",
+        "dimensions": "3361 × 2984"
+      },
+      "collection": "test-photos/2025/虚拟摄影"
+    },
+    {
+      "id": "ab97388c354a2c1e",
+      "src": "https://images.starnight.top/test-photos/2025/虚拟摄影/Character_010_mountain_仙女.png",
+      "title": "Character 010 Mountain 仙女",
+      "categories": [
+        "Mountain",
+        "仙女"
+      ],
+      "photographer": "Unknown",
+      "likes": 911,
+      "description": "一张精美的摄影作品，使用专业设备拍摄。",
+      "filename": "Character_010_mountain_仙女.png",
+      "width": 1517,
+      "height": 811,
+      "exif": {
+        "camera": "Sony A7R IV",
+        "lens": "50mm f/1.2",
+        "iso": 800,
+        "aperture": "f/8",
+        "shutterSpeed": "1/500",
+        "focalLength": "114mm",
+        "dateTaken": "2025-08-15",
+        "fileSize": "3.2 MB",
+        "dimensions": "4355 × 2196"
+      },
+      "collection": "test-photos/2025/虚拟摄影"
+    },
+    {
+      "id": "1a722f2ff01c77a7",
+      "src": "https://images.starnight.top/test-photos/2025/虚拟摄影/Frame_004_修仙_warrior_epic.png",
+      "title": "Frame 004 修仙 Warrior Epic",
+      "categories": [
+        "修仙",
+        "Warrior",
+        "Epic"
+      ],
+      "photographer": "Unknown",
+      "likes": 580,
+      "description": "一张精美的摄影作品，使用专业设备拍摄。",
+      "filename": "Frame_004_修仙_warrior_epic.png",
+      "width": 675,
+      "height": 984,
+      "exif": {
+        "camera": "Olympus OM-D E-M1",
+        "lens": "16-35mm f/2.8",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/125",
+        "focalLength": "210mm",
+        "dateTaken": "2025-08-15",
+        "fileSize": "16.9 MB",
+        "dimensions": "3695 × 2838"
+      },
+      "collection": "test-photos/2025/虚拟摄影"
+    },
+    {
+      "id": "0410a2725aeacd51",
+      "src": "https://images.starnight.top/test-photos/2025/虚拟摄影/IMG_019_combat_dawn.png",
+      "title": "019 Combat Dawn",
+      "categories": [
+        "Combat",
+        "Dawn"
+      ],
+      "photographer": "Unknown",
+      "likes": 647,
+      "description": "一张精美的摄影作品，使用专业设备拍摄。",
+      "filename": "IMG_019_combat_dawn.png",
+      "width": 1157,
+      "height": 1319,
+      "exif": {
+        "camera": "Nikon Z7",
+        "lens": "100mm f/2.8 Macro",
+        "iso": 3200,
+        "aperture": "f/5.6",
+        "shutterSpeed": "1/60",
+        "focalLength": "15mm",
+        "dateTaken": "2025-08-15",
+        "fileSize": "7.7 MB",
+        "dimensions": "5711 × 2545"
+      },
+      "collection": "test-photos/2025/虚拟摄影"
+    },
+    {
+      "id": "befaaba869392a00",
+      "src": "https://images.starnight.top/test-photos/2025/虚拟摄影/IMG_021_palace_武侠.png",
+      "title": "021 Palace 武侠",
+      "categories": [
+        "Palace",
+        "武侠"
+      ],
+      "photographer": "Unknown",
+      "likes": 628,
+      "description": "一张精美的摄影作品，使用专业设备拍摄。",
+      "filename": "IMG_021_palace_武侠.png",
+      "width": 1479,
+      "height": 1238,
+      "exif": {
+        "camera": "Nikon Z7",
+        "lens": "50mm f/1.2",
+        "iso": 100,
+        "aperture": "f/1.4",
+        "shutterSpeed": "1/125",
+        "focalLength": "276mm",
+        "dateTaken": "2025-08-15",
+        "fileSize": "6.7 MB",
+        "dimensions": "4977 × 3992"
+      },
+      "collection": "test-photos/2025/虚拟摄影"
+    },
+    {
+      "id": "c4152db22fb4756b",
+      "src": "https://images.starnight.top/test-photos/2025/虚拟摄影/PAL7_002_epic_sunset_修仙.png",
+      "title": "PAL7 002 Epic Sunset 修仙",
+      "categories": [
+        "Epic",
+        "Sunset",
+        "修仙"
+      ],
+      "photographer": "Unknown",
+      "likes": 472,
+      "description": "一张精美的摄影作品，使用专业设备拍摄。",
+      "filename": "PAL7_002_epic_sunset_修仙.png",
+      "width": 724,
+      "height": 489,
+      "exif": {
+        "camera": "Sony A7R IV",
+        "lens": "14-24mm f/2.8",
+        "iso": 200,
+        "aperture": "f/11",
+        "shutterSpeed": "1/1000",
+        "focalLength": "231mm",
+        "dateTaken": "2025-08-15",
+        "fileSize": "4.4 MB",
+        "dimensions": "3698 × 3889"
+      },
+      "collection": "test-photos/2025/虚拟摄影"
+    },
+    {
+      "id": "bd2b91026b43cb57",
+      "src": "https://images.starnight.top/test-photos/2025/虚拟摄影/Photo_007_mage.png",
+      "title": "007 Mage",
+      "categories": [
+        "Mage"
+      ],
+      "photographer": "Unknown",
+      "likes": 598,
+      "description": "一张精美的摄影作品，使用专业设备拍摄。",
+      "filename": "Photo_007_mage.png",
+      "width": 1124,
+      "height": 723,
+      "exif": {
+        "camera": "Fujifilm X-T4",
+        "lens": "60mm f/2.8 Macro",
+        "iso": 100,
+        "aperture": "f/5.6",
+        "shutterSpeed": "1/60",
+        "focalLength": "258mm",
+        "dateTaken": "2025-08-15",
+        "fileSize": "6.2 MB",
+        "dimensions": "3954 × 3935"
+      },
+      "collection": "test-photos/2025/虚拟摄影"
+    },
+    {
+      "id": "6c9e949b4406cd62",
+      "src": "https://images.starnight.top/test-photos/2025/虚拟摄影/Screenshot_005_snow.png",
+      "title": "Screenshot 005 Snow",
+      "categories": [
+        "Snow"
+      ],
+      "photographer": "Unknown",
+      "likes": 412,
+      "description": "一张精美的摄影作品，使用专业设备拍摄。",
+      "filename": "Screenshot_005_snow.png",
+      "width": 735,
+      "height": 1232,
+      "exif": {
+        "camera": "Sony A7R IV",
+        "lens": "100mm f/2.8 Macro",
+        "iso": 3200,
+        "aperture": "f/5.6",
+        "shutterSpeed": "1/500",
+        "focalLength": "73mm",
+        "dateTaken": "2025-08-15",
+        "fileSize": "12.7 MB",
+        "dimensions": "4181 × 2060"
+      },
+      "collection": "test-photos/2025/虚拟摄影"
     }
   ],
   "collections": [
     {
-      "name": "test-photos/2024/nature",
-      "displayName": "nature",
+      "name": "test-photos/2024/RPG冒险",
+      "displayName": "RPG冒险",
+      "photoCount": 4,
+      "coverImage": "https://images.starnight.top/test-photos/2024/RPG冒险/DSC_013_serene_mage.png",
+      "lastUpdated": "2025-08-15"
+    },
+    {
+      "name": "test-photos/2024/仙剑奇侠传七",
+      "displayName": "仙剑奇侠传七",
       "photoCount": 2,
-      "coverImage": "https://example.com/test-photos/2024/nature/forest_path.jpg",
+      "coverImage": "https://images.starnight.top/test-photos/2024/仙剑奇侠传七/Screenshot_009_mountain_江湖_serene.png",
       "lastUpdated": "2025-08-15"
     },
     {
-      "name": "test-photos/2024/portrait",
-      "displayName": "portrait",
-      "photoCount": 1,
-      "coverImage": "https://example.com/test-photos/2024/portrait/musician.jpg",
+      "name": "test-photos/2024/游戏截图",
+      "displayName": "游戏截图",
+      "photoCount": 4,
+      "coverImage": "https://images.starnight.top/test-photos/2024/游戏截图/Capture_008_protagonist_dawn_古风.png",
       "lastUpdated": "2025-08-15"
     },
     {
-      "name": "test-photos/2024/travel",
-      "displayName": "travel",
-      "photoCount": 1,
-      "coverImage": "https://example.com/test-photos/2024/travel/eiffel_tower.jpg",
+      "name": "test-photos/2025/游戏世界",
+      "displayName": "游戏世界",
+      "photoCount": 4,
+      "coverImage": "https://images.starnight.top/test-photos/2025/游戏世界/Character_012_peaceful.png",
       "lastUpdated": "2025-08-15"
     },
     {
-      "name": "test-photos/2024/urban",
-      "displayName": "urban",
-      "photoCount": 2,
-      "coverImage": "https://example.com/test-photos/2024/urban/city_lights.jpg",
-      "lastUpdated": "2025-08-15"
-    },
-    {
-      "name": "test-photos/2025/landscape",
-      "displayName": "landscape",
-      "photoCount": 1,
-      "coverImage": "https://example.com/test-photos/2025/landscape/desert_dunes.jpg",
-      "lastUpdated": "2025-08-15"
-    },
-    {
-      "name": "test-photos/2025/wildlife",
-      "displayName": "wildlife",
-      "photoCount": 1,
-      "coverImage": "https://example.com/test-photos/2025/wildlife/eagle_soaring.jpg",
+      "name": "test-photos/2025/虚拟摄影",
+      "displayName": "虚拟摄影",
+      "photoCount": 8,
+      "coverImage": "https://images.starnight.top/test-photos/2025/虚拟摄影/Capture_015_cutscene.png",
       "lastUpdated": "2025-08-15"
     }
   ]
