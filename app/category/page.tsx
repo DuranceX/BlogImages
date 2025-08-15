@@ -4,7 +4,6 @@ import Link from "next/link"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import { getCategories, getPhotosByCategory } from "@/lib/gallery-data"
-import { mockPhotos } from "@/lib/mock-photos"
 import { Card } from "@/components/ui/card"
 import { Camera } from "lucide-react"
 
@@ -29,6 +28,11 @@ export default function CategoryIndexPage() {
   const [categories, setCategories] = useState<CategoryInfo[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  
+  // 获取第一个分类的第一张图片作为背景图
+  const backgroundImage = categories.length > 0 && categories[0].firstImage
+    ? categories[0].firstImage
+    : "/placeholder.svg"
 
   useEffect(() => {
     async function loadCategories() {
@@ -52,30 +56,7 @@ export default function CategoryIndexPage() {
           }
         }
         
-        // 如果没有远程数据，使用mock数据作为fallback
-        if (categoryData.length === 0) {
-          const categoriesMap = new Map<string, { count: number; firstImage: string }>()
-          
-          mockPhotos.forEach((photo) => {
-            photo.categories.forEach((category) => {
-              if (!categoriesMap.has(category)) {
-                categoriesMap.set(category, { count: 0, firstImage: photo.src })
-              }
-              const current = categoriesMap.get(category)!
-              categoriesMap.set(category, { ...current, count: current.count + 1 })
-            })
-          })
-          
-          const mockCategoryData = Array.from(categoriesMap.entries()).map(([name, data]) => ({
-            name,
-            count: data.count,
-            firstImage: data.firstImage,
-          }))
-          
-          setCategories(mockCategoryData)
-        } else {
-          setCategories(categoryData.sort((a, b) => b.count - a.count))
-        }
+        setCategories(categoryData.sort((a, b) => b.count - a.count))
         
         setError(null)
       } catch (err) {
@@ -99,7 +80,7 @@ export default function CategoryIndexPage() {
         <div
           className="fixed inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1920&h=1080')",
+            backgroundImage: `url('${backgroundImage}')`,
           }}
         />
         <div className="fixed inset-0 bg-black/85" />

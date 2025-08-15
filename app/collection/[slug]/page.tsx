@@ -29,6 +29,11 @@ export default function CollectionPage({ params }: CollectionPageProps) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [collectionName, setCollectionName] = useState<string>("")
+  
+  // 获取当前合集的第一张图片作为背景图
+  const backgroundImage = photos.length > 0 
+    ? photos[0].src 
+    : "/placeholder.svg"
 
   useEffect(() => {
     async function loadCollectionPhotos() {
@@ -64,12 +69,12 @@ export default function CollectionPage({ params }: CollectionPageProps) {
         <div
           className="fixed inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1920&h=1080')",
+            backgroundImage: `url('${backgroundImage}')`,
           }}
         />
         <div className="fixed inset-0 bg-black/85" />
 
-        <header className="bg-black/40 backdrop-blur-sm border-b border-neutral-800 sticky top-0 z-40 relative">
+        <header className="bg-black/40 backdrop-blur-sm border-b border-neutral-800 sticky top-0 relative">
           <div className="container mx-auto px-6 py-4">
             <nav className="flex items-center justify-center space-x-6">
               <Link href="/" className="text-lg font-medium text-neutral-400 hover:text-neutral-300 transition-colors">
@@ -96,7 +101,7 @@ export default function CollectionPage({ params }: CollectionPageProps) {
           <div className="container mx-auto px-6 py-4">
             <nav className="flex items-center space-x-2 text-sm">
               <Link href="/collection" className="text-neutral-400 hover:text-neutral-300">
-                合集
+                Collections
               </Link>
               <span className="text-neutral-600">/</span>
               <span className="text-white">{collectionName}</span>

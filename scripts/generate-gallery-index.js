@@ -67,13 +67,20 @@ function extractDisplayName(path) {
 function generateTitleFromFilename(filename) {
   const nameWithoutExt = path.parse(filename).name;
   // 移除常见的图片命名前缀/后缀
-  const cleaned = nameWithoutExt
+  let cleaned = nameWithoutExt
     .replace(/^(img|image|photo|pic)[-_]?/i, '')
-    .replace(/[-_]?(edited|final|export)$/i, '')
-    .replace(/[-_]/g, ' ')
-    .replace(/\b\w/g, l => l.toUpperCase());
+    .replace(/[-_]?(edited|final|export)$/i, '');
   
-  return cleaned || 'Untitled';
+  // 只保留第一个下划线或连字符之前的部分作为主标题
+  const parts = cleaned.split(/[-_]/);
+  const mainTitle = parts[0] || cleaned;
+  
+  // 格式化标题
+  const formatted = mainTitle
+    .replace(/([a-z])([A-Z])/g, '$1 $2') // 在小写字母和大写字母之间添加空格
+    .replace(/\b\w/g, l => l.toUpperCase()); // 首字母大写
+  
+  return formatted || 'Untitled';
 }
 
 // 生成模拟的EXIF数据

@@ -3,7 +3,6 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import { getPhotos, type Photo } from "@/lib/gallery-data"
-import { mockPhotos } from "@/lib/mock-photos"
 import PhotoGrid from "@/components/photo-grid"
 
 // 添加自定义CSS样式
@@ -19,9 +18,14 @@ const customStyles = `
 
 export default function NewestPhotosPage() {
   const router = useRouter()
-  const [photos, setPhotos] = useState<Photo[]>(mockPhotos) // 使用mock数据作为初始值
+  const [photos, setPhotos] = useState<Photo[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  
+  // 获取第一张图片作为背景图
+  const backgroundImage = photos.length > 0 
+    ? photos[0].src 
+    : "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1920&h=1080"
 
   useEffect(() => {
     async function loadPhotos() {
@@ -29,15 +33,11 @@ export default function NewestPhotosPage() {
         setLoading(true)
         const galleryPhotos = await getPhotos()
         
-        // 如果获取到了数据，使用远程数据；否则继续使用mock数据
-        if (galleryPhotos.length > 0) {
-          setPhotos(galleryPhotos)
-        }
+        setPhotos(galleryPhotos)
         setError(null)
       } catch (err) {
         console.error('Failed to load gallery photos:', err)
         setError(err instanceof Error ? err.message : 'Failed to load photos')
-        // 保持使用mock数据作为fallback
       } finally {
         setLoading(false)
       }
@@ -59,7 +59,7 @@ export default function NewestPhotosPage() {
         <div
           className="fixed inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1920&h=1080')",
+            backgroundImage: `url('${backgroundImage}')`,
           }}
         />
         <div className="fixed inset-0 bg-black/85" />

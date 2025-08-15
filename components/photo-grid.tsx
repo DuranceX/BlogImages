@@ -20,7 +20,7 @@ import {
   Eye,
 } from "lucide-react"
 import Image from "next/image"
-import type { Photo } from "@/lib/mock-photos" // 导入 Photo 接口
+import type { Photo } from "@/lib/gallery-data" // 导入 Photo 接口
 import type { HTMLDivElement } from "react"
 
 interface PhotoGridProps {
@@ -274,17 +274,17 @@ export default function PhotoGrid({ initialPhotos, selectedCategory, onCategoryC
         )}
 
         {!hasMore && filteredPhotos.length > 0 && (
-          <div className="text-center py-8 text-neutral-500 text-sm">You've reached the end of the collection.</div>
+          <div className="text-center py-8 text-neutral-500 text-sm">已浏览完所有照片</div>
         )}
 
         {filteredPhotos.length === 0 && (
           <div className="text-center py-20">
             <Camera className="h-12 w-12 text-neutral-600 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-neutral-400 mb-2">No photos found</h3>
+            <h3 className="text-lg font-medium text-neutral-400 mb-2">暂无照片</h3>
             <p className="text-neutral-600 text-sm">
               {selectedCategory === "All"
-                ? "The collection appears to be empty"
-                : `No photos found in the ${selectedCategory} category`}
+                ? "合集暂时为空"
+                : `${selectedCategory} 分类下暂无照片`}
             </p>
           </div>
         )}
@@ -292,7 +292,7 @@ export default function PhotoGrid({ initialPhotos, selectedCategory, onCategoryC
 
       {isModalOpen && selectedPhoto && (
         <div
-          className={`fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 transition-all duration-300 ease-out ${
+          className={`fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 transition-all duration-300 ease-out ${
             isModalVisible ? "opacity-100" : "opacity-0"
           } ${isFullScreen ? "opacity-0 pointer-events-none" : ""}`}
           style={{
@@ -335,7 +335,7 @@ export default function PhotoGrid({ initialPhotos, selectedCategory, onCategoryC
                   alt={selectedPhoto.title}
                   width={1200}
                   height={800}
-                  className="max-w-full max-h-[50vh] lg:max-h-[80vh] object-contain rounded-lg shadow-2xl transition-all duration-300 cursor-pointer"
+                  className="max-w-full object-contain rounded-lg shadow-2xl transition-all duration-300 cursor-pointer"
                   onClick={toggleFullScreen}
                   onError={(e) => {
                     const target = e.target as HTMLImageElement
@@ -344,7 +344,7 @@ export default function PhotoGrid({ initialPhotos, selectedCategory, onCategoryC
                 />
               </div>
 
-              <div className="lg:w-80 overflow-y-auto scrollbar-hide max-h-full lg:max-h-[80vh] p-6">
+              <div className="lg:w-80 overflow-y-auto scrollbar-hide max-h-full p-6">
                 <div className="space-y-6">
                   <div>
                     <h2 className="text-xl font-medium mb-2 text-white">{selectedPhoto.title}</h2>

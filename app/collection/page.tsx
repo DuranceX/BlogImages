@@ -20,6 +20,11 @@ export default function CollectionsPage() {
   const [collections, setCollections] = useState<Collection[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  
+  // 获取第一个合集的封面图作为背景图
+  const backgroundImage = collections.length > 0 && collections[0].coverImage
+    ? collections[0].coverImage
+    : "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1920&h=1080"
 
   useEffect(() => {
     async function loadCollections() {
@@ -41,7 +46,8 @@ export default function CollectionsPage() {
 
   const handleCollectionClick = (collectionName: string) => {
     const slug = generateCollectionSlug(collectionName)
-    router.push(`/collection/${slug}`)
+    const encodedSlug = encodeURIComponent(slug)
+    router.push(`/collection/${encodedSlug}`)
   }
 
   return (
@@ -53,7 +59,7 @@ export default function CollectionsPage() {
         <div
           className="fixed inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1920&h=1080')",
+            backgroundImage: `url('${backgroundImage}')`,
           }}
         />
         <div className="fixed inset-0 bg-black/85" />

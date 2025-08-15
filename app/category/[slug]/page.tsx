@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import { mockPhotos } from "@/lib/mock-photos"
 import { getPhotosByCategory, type Photo } from "@/lib/gallery-data"
 import PhotoGrid from "@/components/photo-grid"
 import { useRouter } from "next/navigation"
@@ -40,22 +39,12 @@ export default function CategoryDetailPage({ params }: CategoryDetailPageProps) 
         setLoading(true)
         const categoryPhotos = await getPhotosByCategory(categoryName)
         
-        // 计算mock数据
-        const mockPhotosForCategory = mockPhotos.filter((photo) => photo.categories.includes(categoryName))
-        
-        // 如果有远程数据，使用远程数据；否则使用mock数据
-        if (categoryPhotos.length > 0) {
-          setPhotos(categoryPhotos)
-        } else {
-          setPhotos(mockPhotosForCategory)
-        }
+        setPhotos(categoryPhotos)
         setError(null)
       } catch (err) {
         console.error('Failed to load category photos:', err)
         setError(err instanceof Error ? err.message : 'Failed to load photos')
-        // 使用mock数据作为fallback
-        const mockPhotosForCategory = mockPhotos.filter((photo) => photo.categories.includes(categoryName))
-        setPhotos(mockPhotosForCategory)
+        setPhotos([])
       } finally {
         setLoading(false)
       }
@@ -64,11 +53,11 @@ export default function CategoryDetailPage({ params }: CategoryDetailPageProps) 
     loadCategoryPhotos()
   }, [categoryName])
   
-  // 获取当前分类的第一张图片作为背景图，如果没有则使用默认占位符
+  // 获取当前分类的第一张图片作为背景图，如果没有则使用占位符
   const categoryBackgroundImage =
     photos.length > 0
       ? photos[0].src
-      : "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1920&h=1080"
+      : "/placeholder.svg"
 
   const handleCategoryClick = (category: string) => {
     router.push(`/category/${category}`)
@@ -126,7 +115,7 @@ export default function CategoryDetailPage({ params }: CategoryDetailPageProps) 
           </div>
         )}
         
-        <h1 className="text-2xl font-bold text-white text-center pt-6">{categoryName} Photos</h1>
+        <h1 className="text-2xl font-bold text-white text-center pt-6">{categoryName} 照片</h1>
         
         {loading ? (
           <div className="flex items-center justify-center min-h-[400px]">
