@@ -1,70 +1,29 @@
 #!/usr/bin/env node
 
 // 测试索引生成器的脚本
-// 用于本地测试，创建一些示例文件夹结构
+// 用于测试现有的图片目录结构
 
 const fs = require('fs');
 const path = require('path');
 
-// 创建测试目录结构
-function createTestStructure() {
-  const testDir = './test-photos';
-  
-  // 创建目录结构
-  const dirs = [
-    'test-photos/2024/nature',
-    'test-photos/2024/urban', 
-    'test-photos/2024/portrait',
-    'test-photos/2024/travel',
-    'test-photos/2025/landscape',
-    'test-photos/2025/wildlife'
-  ];
-  
-  dirs.forEach(dir => {
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-  });
-  
-  // 创建一些测试文件（空文件，仅用于测试结构）
-  const testFiles = [
-    'test-photos/2024/nature/mountain_sunset.jpg',
-    'test-photos/2024/nature/forest_path.jpg',
-    'test-photos/2024/urban/city_lights.jpg',
-    'test-photos/2024/urban/street_art.jpg',
-    'test-photos/2024/portrait/musician.jpg',
-    'test-photos/2024/travel/eiffel_tower.jpg',
-    'test-photos/2025/landscape/desert_dunes.jpg',
-    'test-photos/2025/wildlife/eagle_soaring.jpg'
-  ];
-  
-  testFiles.forEach(file => {
-    if (!fs.existsSync(file)) {
-      fs.writeFileSync(file, ''); // 创建空文件
-    }
-  });
-  
-  console.log('✅ 测试目录结构创建完成！');
-  console.log('📁 目录：test-photos/');
-  console.log('📸 测试文件：', testFiles.length, '个');
-  
-  return testDir;
-}
-
 // 运行生成器测试
-async function runGeneratorTest() {
+async function runGeneratorTest(testDir = './test-photos', outputFile = 'test-gallery-index.json', baseUrl = 'https://images.starnight.top') {
   console.log('🚀 开始测试图片索引生成器...\n');
   
-  // 创建测试目录
-  const testDir = createTestStructure();
+  // 检查测试目录是否存在
+  if (!fs.existsSync(testDir)) {
+    console.error(`❌ 测试目录 ${testDir} 不存在！`);
+    return;
+  }
   
-  // 导入生成器
-  const generator = require('./generate-gallery-index.js');
+  console.log(`📁 扫描目录: ${testDir}`);
+  console.log(`📄 输出文件: ${outputFile}`);
+  console.log(`🌐 基础URL: ${baseUrl}`);
   
   // 运行生成器
   try {
     const { execSync } = require('child_process');
-    const result = execSync(`node scripts/generate-gallery-index.js ${testDir} test-gallery-index.json "https://example.com"`, {
+    const result = execSync(`node scripts/generate-gallery-index.js "${testDir}" "${outputFile}" "${baseUrl}"`, {
       encoding: 'utf8'
     });
     
@@ -72,15 +31,27 @@ async function runGeneratorTest() {
     console.log(result);
     
     // 检查生成的文件
-    if (fs.existsSync('test-gallery-index.json')) {
-      const indexData = JSON.parse(fs.readFileSync('test-gallery-index.json', 'utf8'));
+    if (fs.existsSync(outputFile)) {
+      const indexData = JSON.parse(fs.readFileSync(outputFile, 'utf8'));
       console.log('\n📋 生成的索引信息：');
       console.log(`- 总照片数：${indexData.totalPhotos}`);
       console.log(`- 更新时间：${indexData.lastUpdated}`);
-      console.log(`- 分类：${[...new Set(indexData.photos.flatMap(p => p.categories))].join(', ')}`);
+      console.log(`- 合集数量：${indexData.collections ? indexData.collections.length : 0}`);
+      
+      if (indexData.collections && indexData.collections.length > 0) {
+        console.log('\n📁 合集列表：');
+        indexData.collections.forEach(collection => {
+          console.log(`   - ${collection.displayName}: ${collection.photoCount} 张照片`);
+        });
+      }
+      
+      const categories = [...new Set(indexData.photos.flatMap(p => p.categories))];
+      if (categories.length > 0) {
+        console.log(`\n🏷️ 分类：${categories.join(', ')}`);
+      }
       
       console.log('\n✅ 测试成功完成！');
-      console.log('📄 生成的测试文件：test-gallery-index.json');
+      console.log(`📄 生成的文件：${outputFile}`);
     } else {
       console.log('❌ 索引文件生成失败！');
     }
@@ -88,15 +59,17 @@ async function runGeneratorTest() {
   } catch (error) {
     console.error('❌ 测试失败：', error.message);
   }
-  
-  // 清理提示
-  console.log('\n🧹 清理测试文件：');
-  console.log('rm -rf test-photos test-gallery-index.json');
 }
 
 // 如果直接运行此脚本
 if (require.main === module) {
-  runGeneratorTest();
+  // 从命令行参数获取配置
+  const args = process.argv.slice(2);
+  const testDir = args[0] || './test-photos';
+  const outputFile = args[1] || 'test-gallery-index.json';
+  const baseUrl = args[2] || 'https://images.starnight.top';
+  
+  runGeneratorTest(testDir, outputFile, baseUrl);
 }
 
-module.exports = { createTestStructure, runGeneratorTest };
+module.exports = { runGeneratorTest };

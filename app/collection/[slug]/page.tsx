@@ -1,8 +1,8 @@
 "use client"
 import Link from "next/link"
-import { useEffect, useState } from "react"
+import { useEffect, useState, use } from "react"
 import { useRouter } from "next/navigation"
-import { getPhotosByCollection, type Photo } from "@/lib/gallery-data"
+import { getPhotosByCollection, getCollectionNameFromSlug, type Photo } from "@/lib/gallery-data"
 import PhotoGrid from "@/components/photo-grid"
 
 // 添加自定义CSS样式
@@ -17,13 +17,14 @@ const customStyles = `
 `
 
 interface CollectionPageProps {
-  params: {
-    name: string
-  }
+  params: Promise<{
+    slug: string
+  }>
 }
 
 export default function CollectionPage({ params }: CollectionPageProps) {
   const router = useRouter()
+  const resolvedParams = use(params)
   const [photos, setPhotos] = useState<Photo[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -33,10 +34,10 @@ export default function CollectionPage({ params }: CollectionPageProps) {
     async function loadCollectionPhotos() {
       try {
         setLoading(true)
-        const decodedName = decodeURIComponent(params.name)
-        setCollectionName(decodedName)
+        const collectionName = await getCollectionNameFromSlug(resolvedParams.slug)
+        setCollectionName(collectionName)
         
-        const collectionPhotos = await getPhotosByCollection(decodedName)
+        const collectionPhotos = await getPhotosByCollection(collectionName)
         setPhotos(collectionPhotos)
         setError(null)
       } catch (err) {
@@ -48,7 +49,7 @@ export default function CollectionPage({ params }: CollectionPageProps) {
     }
 
     loadCollectionPhotos()
-  }, [params.name])
+  }, [resolvedParams.slug])
 
   const handleCategoryClick = (category: string) => {
     router.push(`/category/${category}`)
@@ -75,7 +76,7 @@ export default function CollectionPage({ params }: CollectionPageProps) {
                 Newest
               </Link>
               <Link
-                href="/collections"
+                href="/collection"
                 className="text-lg font-medium text-neutral-400 hover:text-neutral-300 transition-colors"
               >
                 Collections
@@ -94,7 +95,7 @@ export default function CollectionPage({ params }: CollectionPageProps) {
           {/* 面包屑导航 */}
           <div className="container mx-auto px-6 py-4">
             <nav className="flex items-center space-x-2 text-sm">
-              <Link href="/collections" className="text-neutral-400 hover:text-neutral-300">
+              <Link href="/collection" className="text-neutral-400 hover:text-neutral-300">
                 合集
               </Link>
               <span className="text-neutral-600">/</span>

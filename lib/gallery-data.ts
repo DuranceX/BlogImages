@@ -44,8 +44,8 @@ export interface GalleryData {
 
 // 默认的GitHub仓库配置 - 需要用户自己配置
 const GITHUB_CONFIG = {
-  owner: process.env.NEXT_PUBLIC_GITHUB_OWNER || 'YOUR_USERNAME',
-  repo: process.env.NEXT_PUBLIC_GITHUB_REPO || 'YOUR_PHOTO_REPO',
+  owner: process.env.NEXT_PUBLIC_GITHUB_OWNER || 'DuranceX',
+  repo: process.env.NEXT_PUBLIC_GITHUB_REPO || 'BlogImages',
   branch: process.env.NEXT_PUBLIC_GITHUB_BRANCH || 'main',
   indexFile: process.env.NEXT_PUBLIC_INDEX_FILE || 'gallery-index.json'
 }
@@ -215,9 +215,16 @@ export async function getPhotosByCollection(collectionName: string): Promise<Pho
  */
 function extractDisplayName(path: string): string {
   // 从路径中提取最后一个文件夹名称作为显示名称
-  // 例如：photos/2024/上海旅游 -> 上海旅游
-  const parts = path.split('/').filter(part => part && part !== 'photos')
-  return parts[parts.length - 1] || path
+  // 例如：test-photos/2024/RPG冒险 -> RPG冒险
+  const parts = path.split('/').filter(part => part && !part.match(/^(test-photos|photos|2024|2023|2022)$/))
+  let lastPart = parts[parts.length - 1] || path
+  
+  // 如果最后一部分是年份，取倒数第二个
+  if (lastPart.match(/^\d{4}$/)) {
+    lastPart = parts[parts.length - 2] || lastPart
+  }
+  
+  return lastPart || path
 }
 
 /**
@@ -249,6 +256,42 @@ export function extractTagsFromFilename(filename: string): string[] {
  */
 function formatTagName(tag: string): string {
   return tag.charAt(0).toUpperCase() + tag.slice(1).toLowerCase()
+}
+
+/**
+ * 生成collection的URL友好slug
+ */
+export function generateCollectionSlug(collectionName: string): string {
+  // 现在collectionName已经是简洁的名称了，直接使用
+  return collectionName
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w\u4e00-\u9fff-]/g, '')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
+}
+
+/**
+ * 从slug还原collection名称
+ */
+export async function getCollectionNameFromSlug(slug: string): Promise<string> {
+  try {
+    // 获取所有合集数据
+    const collections = await getCollections()
+    
+    // 查找匹配的合集
+    for (const collection of collections) {
+      const collectionSlug = generateCollectionSlug(collection.name)
+      if (collectionSlug === slug) {
+        return collection.name
+      }
+    }
+    // 如果没找到，尝试简单的解码和替换
+    return decodeURIComponent(slug).replace(/-/g, ' ')
+  } catch (error) {
+    console.error('Error getting collection name from slug:', error)
+    return decodeURIComponent(slug).replace(/-/g, ' ')
+  }
 }
 
 /**

@@ -71,7 +71,7 @@ export default function NewestPhotosPage() {
                 Newest
               </Link>
               <Link
-                href="/collections"
+                href="/collection"
                 className="text-lg font-medium text-neutral-400 hover:text-neutral-300 transition-colors"
               >
                 Collections

@@ -40,14 +40,16 @@ function extractCollectionFromPath(filePath) {
   
   // 找到photos目录后的路径作为合集，如果没有photos目录，从第一个目录开始
   let startIndex = 0;
-  const photosIndex = pathParts.findIndex(part => part === 'photos');
+  const photosIndex = pathParts.findIndex(part => part === 'photos' || part === 'test-photos');
   if (photosIndex >= 0) {
     startIndex = photosIndex + 1;
   }
   
   // 返回从startIndex到文件名之前的路径
   if (startIndex < pathParts.length - 1) {
-    return pathParts.slice(startIndex, -1).join('/');
+    const fullPath = pathParts.slice(startIndex, -1).join('/');
+    // 只返回最后一个文件夹名称作为合集名
+    return extractDisplayName(fullPath);
   }
   
   return null;
@@ -183,8 +185,8 @@ function main() {
     if (photo.collection) {
       if (!collectionsMap.has(photo.collection)) {
         collectionsMap.set(photo.collection, {
-          name: photo.collection,
-          displayName: extractDisplayName(photo.collection),
+          name: photo.collection, // 已经是简洁的名称了
+          displayName: photo.collection, // 直接使用collection作为displayName
           photoCount: 0,
           coverImage: photo.src,
           lastUpdated: photo.exif.dateTaken

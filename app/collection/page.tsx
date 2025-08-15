@@ -2,7 +2,7 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
-import { getCollections, type Collection } from "@/lib/gallery-data"
+import { getCollections, generateCollectionSlug, type Collection } from "@/lib/gallery-data"
 
 // 添加自定义CSS样式
 const customStyles = `
@@ -40,7 +40,8 @@ export default function CollectionsPage() {
   }, [])
 
   const handleCollectionClick = (collectionName: string) => {
-    router.push(`/collection/${encodeURIComponent(collectionName)}`)
+    const slug = generateCollectionSlug(collectionName)
+    router.push(`/collection/${slug}`)
   }
 
   return (
@@ -64,7 +65,7 @@ export default function CollectionsPage() {
                 Newest
               </Link>
               <Link
-                href="/collections"
+                href="/collection"
                 className="text-lg font-medium text-white hover:text-neutral-300 transition-colors"
               >
                 Collections
