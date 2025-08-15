@@ -23,12 +23,23 @@ export interface Photo {
   width: number
   height: number
   exif: PhotoExif
+  collection?: string // 添加合集信息
+}
+
+export interface Collection {
+  name: string // 文件夹路径名
+  displayName: string // 显示名称（从路径提取）
+  description?: string
+  photoCount: number
+  coverImage?: string // 封面图片
+  lastUpdated?: string
 }
 
 export interface GalleryData {
   lastUpdated: string
   totalPhotos: number
   photos: Photo[]
+  collections?: Collection[] // 添加合集信息
 }
 
 // 默认的GitHub仓库配置 - 需要用户自己配置
@@ -151,16 +162,109 @@ export async function searchPhotos(query: string): Promise<Photo[]> {
 }
 
 /**
+ * 获取所有合集
+ */
+export async function getCollections(): Promise<Collection[]> {
+  const galleryData = await fetchGalleryData()
+  
+  if (galleryData.collections) {
+    return galleryData.collections
+  }
+  
+  // 如果没有预生成的合集数据，从照片数据中动态生成
+  const photos = galleryData.photos
+  const collectionsMap = new Map<string, Collection>()
+  
+  photos.forEach(photo => {
+    if (photo.collection) {
+      if (!collectionsMap.has(photo.collection)) {
+        collectionsMap.set(photo.collection, {
+          name: photo.collection,
+          displayName: extractDisplayName(photo.collection),
+          photoCount: 0,
+          coverImage: photo.src,
+          lastUpdated: photo.exif.dateTaken
+        })
+      }
+      
+      const collection = collectionsMap.get(photo.collection)!
+      collection.photoCount++
+      
+      // 更新最新时间
+      if (photo.exif.dateTaken > (collection.lastUpdated || '')) {
+        collection.lastUpdated = photo.exif.dateTaken
+      }
+    }
+  })
+  
+  return Array.from(collectionsMap.values()).sort((a, b) => 
+    (b.lastUpdated || '').localeCompare(a.lastUpdated || '')
+  )
+}
+
+/**
+ * 根据合集名称获取照片
+ */
+export async function getPhotosByCollection(collectionName: string): Promise<Photo[]> {
+  const photos = await getPhotos()
+  return photos.filter(photo => photo.collection === collectionName)
+}
+
+/**
+ * 从路径提取显示名称
+ */
+function extractDisplayName(path: string): string {
+  // 从路径中提取最后一个文件夹名称作为显示名称
+  // 例如：photos/2024/上海旅游 -> 上海旅游
+  const parts = path.split('/').filter(part => part && part !== 'photos')
+  return parts[parts.length - 1] || path
+}
+
+/**
+ * 从文件名提取标签作为分类
+ */
+export function extractTagsFromFilename(filename: string): string[] {
+  const nameWithoutExt = filename.replace(/\.[^/.]+$/, '')
+  const tags: string[] = []
+  
+  // 使用 _ 和 - 分割文件名
+  const parts = nameWithoutExt.split(/[-_]/)
+  
+  // 跳过第一个部分（通常是主文件名），从第二个部分开始提取标签
+  for (let i = 1; i < parts.length; i++) {
+    const part = parts[i].trim()
+    if (part && part.length > 1) {
+      // 过滤掉纯数字和常见的无意义词汇
+      if (!/^\d+$/.test(part) && !['copy', 'final', 'edit', 'new'].includes(part.toLowerCase())) {
+        tags.push(formatTagName(part))
+      }
+    }
+  }
+  
+  return tags.length > 0 ? tags : ['其他']
+}
+
+/**
+ * 格式化标签名称
+ */
+function formatTagName(tag: string): string {
+  return tag.charAt(0).toUpperCase() + tag.slice(1).toLowerCase()
+}
+
+/**
  * 获取画廊统计信息
  */
 export async function getGalleryStats() {
   const galleryData = await fetchGalleryData()
   const categories = await getCategories()
+  const collections = await getCollections()
   
   return {
     totalPhotos: galleryData.totalPhotos,
     totalCategories: categories.length - 1, // 减去 'All'
+    totalCollections: collections.length,
     lastUpdated: galleryData.lastUpdated,
-    categories: categories.filter(cat => cat !== 'All')
+    categories: categories.filter(cat => cat !== 'All'),
+    collections: collections.slice(0, 5) // 显示前5个合集
   }
 }

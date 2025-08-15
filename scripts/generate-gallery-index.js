@@ -7,42 +7,58 @@ const crypto = require('crypto');
 // 支持的图片格式
 const SUPPORTED_FORMATS = ['.jpg', '.jpeg', '.png', '.webp', '.gif'];
 
-// 从文件路径推断分类
-function inferCategoriesFromPath(filePath) {
-  const pathParts = filePath.toLowerCase().split('/');
-  const categories = [];
+// 从文件名提取标签作为分类
+function extractTagsFromFilename(filename) {
+  const nameWithoutExt = filename.replace(/\.[^/.]+$/, '');
+  const tags = [];
   
-  // 预定义的分类映射
-  const categoryMappings = {
-    'nature': ['Nature', 'Landscape'],
-    'urban': ['Urban', 'Street'],
-    'portrait': ['Portrait'],
-    'wildlife': ['Nature', 'Wildlife'],
-    'landscape': ['Landscape', 'Nature'],
-    'street': ['Street', 'Urban'],
-    'macro': ['Macro', 'Nature'],
-    'architecture': ['Urban', 'Abstract'],
-    'travel': ['Travel', 'Urban'],
-    'food': ['Food', 'Still Life'],
-    'animals': ['Animals'],
-    'automotive': ['Automotive'],
-    'abstract': ['Abstract']
-  };
+  // 使用 _ 和 - 分割文件名
+  const parts = nameWithoutExt.split(/[-_]/);
   
-  // 检查路径中是否包含分类关键词
-  for (const [keyword, cats] of Object.entries(categoryMappings)) {
-    if (pathParts.some(part => part.includes(keyword))) {
-      categories.push(...cats);
-      break;
+  // 跳过第一个部分（通常是主文件名），从第二个部分开始提取标签
+  for (let i = 1; i < parts.length; i++) {
+    const part = parts[i].trim();
+    if (part && part.length > 1) {
+      // 过滤掉纯数字和常见的无意义词汇
+      if (!/^\d+$/.test(part) && !['copy', 'final', 'edit', 'new'].includes(part.toLowerCase())) {
+        tags.push(formatTagName(part));
+      }
     }
   }
   
-  // 如果没有找到分类，使用默认分类
-  if (categories.length === 0) {
-    categories.push('General');
+  return tags.length > 0 ? tags : ['其他'];
+}
+
+// 格式化标签名称
+function formatTagName(tag) {
+  return tag.charAt(0).toUpperCase() + tag.slice(1).toLowerCase();
+}
+
+// 从路径提取合集名称
+function extractCollectionFromPath(filePath) {
+  const pathParts = filePath.split('/').filter(part => part && part !== '.');
+  
+  // 找到photos目录后的路径作为合集，如果没有photos目录，从第一个目录开始
+  let startIndex = 0;
+  const photosIndex = pathParts.findIndex(part => part === 'photos');
+  if (photosIndex >= 0) {
+    startIndex = photosIndex + 1;
   }
   
-  return [...new Set(categories)]; // 去重
+  // 返回从startIndex到文件名之前的路径
+  if (startIndex < pathParts.length - 1) {
+    return pathParts.slice(startIndex, -1).join('/');
+  }
+  
+  return null;
+}
+
+// 从路径提取显示名称
+function extractDisplayName(path) {
+  // 从路径中提取最后一个文件夹名称作为显示名称
+  // 例如：2024/上海旅游 -> 上海旅游
+  const parts = path.split('/').filter(part => part);
+  return parts[parts.length - 1] || path;
 }
 
 // 从文件名生成标题
@@ -119,18 +135,22 @@ function scanDirectory(dir, baseUrl = '') {
         // 获取文件修改时间作为拍摄时间
         const dateTaken = stat.mtime.toISOString().split('T')[0];
         
+        // 提取合集信息
+        const collection = extractCollectionFromPath(relativePath);
+        
         const photo = {
           id,
           src: `${baseUrl}/${urlPath}`,
           title: generateTitleFromFilename(item),
-          categories: inferCategoriesFromPath(relativePath),
-          photographer: 'Unknown', // 可以从文件元数据或路径推断
+          categories: extractTagsFromFilename(item), // 使用文件名标签作为分类
+          photographer: 'Unknown',
           likes: Math.floor(Math.random() * 1000) + 50,
-          description: `A beautiful photograph captured with professional equipment.`,
+          description: `一张精美的摄影作品，使用专业设备拍摄。`,
           filename: item,
           width: Math.floor(Math.random() * 1000) + 600,
           height: Math.floor(Math.random() * 1000) + 400,
-          exif: generateMockExif(item, dateTaken)
+          exif: generateMockExif(item, dateTaken),
+          collection: collection // 添加合集信息
         };
         
         photos.push(photo);
@@ -157,10 +177,39 @@ function main() {
   
   const photos = scanDirectory(config.photosDir, config.baseUrl);
   
+  // 生成合集信息
+  const collectionsMap = new Map();
+  photos.forEach(photo => {
+    if (photo.collection) {
+      if (!collectionsMap.has(photo.collection)) {
+        collectionsMap.set(photo.collection, {
+          name: photo.collection,
+          displayName: extractDisplayName(photo.collection),
+          photoCount: 0,
+          coverImage: photo.src,
+          lastUpdated: photo.exif.dateTaken
+        });
+      }
+      
+      const collection = collectionsMap.get(photo.collection);
+      collection.photoCount++;
+      
+      // 更新最新时间
+      if (photo.exif.dateTaken > collection.lastUpdated) {
+        collection.lastUpdated = photo.exif.dateTaken;
+      }
+    }
+  });
+  
+  const collections = Array.from(collectionsMap.values()).sort((a, b) => 
+    b.lastUpdated.localeCompare(a.lastUpdated)
+  );
+  
   const galleryData = {
     lastUpdated: new Date().toISOString(),
     totalPhotos: photos.length,
-    photos: photos.sort((a, b) => new Date(b.exif.dateTaken) - new Date(a.exif.dateTaken))
+    photos: photos.sort((a, b) => new Date(b.exif.dateTaken) - new Date(a.exif.dateTaken)),
+    collections: collections
   };
   
   // 确保输出目录存在
@@ -173,11 +222,26 @@ function main() {
   
   console.log(`✅ 成功生成索引文件！`);
   console.log(`📸 总计 ${photos.length} 张图片`);
-  console.log(`📁 分类: ${[...new Set(photos.flatMap(p => p.categories))].join(', ')}`);
+  console.log(`📁 合集: ${collections.length} 个`);
+  console.log(`🏷️ 分类: ${[...new Set(photos.flatMap(p => p.categories))].join(', ')}`);
+  
+  // 显示合集统计
+  if (collections.length > 0) {
+    console.log('\n📊 合集详情:');
+    collections.forEach(collection => {
+      console.log(`   - ${collection.displayName}: ${collection.photoCount} 张`);
+    });
+  }
 }
 
 if (require.main === module) {
   main();
 }
 
-module.exports = { scanDirectory, generateMockExif, inferCategoriesFromPath };
+module.exports = { 
+  scanDirectory, 
+  generateMockExif, 
+  extractTagsFromFilename,
+  extractCollectionFromPath,
+  extractDisplayName
+};

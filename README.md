@@ -85,19 +85,37 @@ npm run dev
 npm run build
 ```
 
-## 图片分类规则
+## 新的分类系统
 
-脚本会根据文件路径自动识别分类：
+### Collections（合集）
+- **基于文件夹名称**：直接使用文件夹名称作为合集名称
+- **示例**：`photos/2024/上海旅游/` → 合集名称为 "上海旅游"
+- **展示**：在 `/collections` 页面以卡片形式展示所有合集
 
-- `nature/` → Nature, Landscape
-- `urban/` → Urban, Street  
-- `portrait/` → Portrait
-- `travel/` → Travel, Urban
-- `macro/` → Macro, Nature
-- `wildlife/` → Nature, Wildlife
-- `architecture/` → Urban, Abstract
+### Categories（分类）  
+- **基于文件名标签**：使用 `-` 或 `_` 分隔文件名中的标签
+- **示例**：`DSC0258_flower_suzhou.jpg` → 分类为 ["Flower", "Suzhou"]
+- **规则**：
+  - 跳过第一部分（主文件名）
+  - 过滤掉纯数字和常见词汇（copy, final, edit, new）
+  - 自动格式化标签名称（首字母大写）
 
-你也可以修改 `scripts/generate-gallery-index.js` 中的分类规则。
+### 文件组织建议
+
+```
+photos/
+├── 2024/
+│   ├── 上海旅游/           # 合集：上海旅游
+│   │   ├── DSC001_sunset_bund.jpg      # 分类：[Sunset, Bund]
+│   │   ├── IMG002_food_xiaolongbao.jpg # 分类：[Food, Xiaolongbao]
+│   │   └── photo_architecture_tower.png # 分类：[Architecture, Tower]
+│   └── 北京游记/           # 合集：北京游记
+│       ├── beijing_001_palace_forbidden.jpg # 分类：[Palace, Forbidden]
+│       └── travel_temple_summer.jpg         # 分类：[Temple, Summer]
+└── 2025/
+    └── 日常摄影/           # 合集：日常摄影
+        └── daily_cat_cute.jpg              # 分类：[Cat, Cute]
+```
 
 ## 数据格式
 
