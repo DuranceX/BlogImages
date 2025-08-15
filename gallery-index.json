@@ -1,6 +1,636 @@
 {
-  "lastUpdated": "2025-08-15T08:08:16.030Z",
-  "totalPhotos": 0,
-  "photos": [],
-  "collections": []
+  "lastUpdated": "2025-08-15T09:14:25.874Z",
+  "totalPhotos": 22,
+  "photos": [
+    {
+      "id": "fd119d3dde6f61ed",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2024/RPG冒险/DSC_013_serene_mage.png",
+      "title": "Serene",
+      "categories": [
+        "Serene",
+        "Mage"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "DSC_013_serene_mage.png",
+      "width": 1200,
+      "height": 800,
+      "exif": {
+        "camera": "",
+        "lens": "",
+        "iso": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "focalLength": "",
+        "dateTaken": "2025-08-15",
+        "fileSize": "",
+        "dimensions": ""
+      },
+      "collection": "RPG冒险"
+    },
+    {
+      "id": "1b1e4630f07c2449",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2024/RPG冒险/DSC_020_仙女.png",
+      "title": "仙女",
+      "categories": [
+        "仙女"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "DSC_020_仙女.png",
+      "width": 1200,
+      "height": 800,
+      "exif": {
+        "camera": "",
+        "lens": "",
+        "iso": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "focalLength": "",
+        "dateTaken": "2025-08-15",
+        "fileSize": "",
+        "dimensions": ""
+      },
+      "collection": "RPG冒险"
+    },
+    {
+      "id": "d2f065101549d537",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2024/RPG冒险/Frame_001_修仙_storm_mysterious.png",
+      "title": "修仙",
+      "categories": [
+        "修仙",
+        "Storm",
+        "Mysterious"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "Frame_001_修仙_storm_mysterious.png",
+      "width": 1200,
+      "height": 800,
+      "exif": {
+        "camera": "",
+        "lens": "",
+        "iso": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "focalLength": "",
+        "dateTaken": "2025-08-15",
+        "fileSize": "",
+        "dimensions": ""
+      },
+      "collection": "RPG冒险"
+    },
+    {
+      "id": "e44b9460f7fa5e82",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2024/RPG冒险/Game_022_epic.png",
+      "title": "Epic",
+      "categories": [
+        "Epic"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "Game_022_epic.png",
+      "width": 1200,
+      "height": 800,
+      "exif": {
+        "camera": "",
+        "lens": "",
+        "iso": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "focalLength": "",
+        "dateTaken": "2025-08-15",
+        "fileSize": "",
+        "dimensions": ""
+      },
+      "collection": "RPG冒险"
+    },
+    {
+      "id": "8d602f5831d6e6b2",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2024/仙剑奇侠传七/Screenshot_009_mountain_江湖_serene.png",
+      "title": "Mountain",
+      "categories": [
+        "Mountain",
+        "江湖",
+        "Serene"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "Screenshot_009_mountain_江湖_serene.png",
+      "width": 1200,
+      "height": 800,
+      "exif": {
+        "camera": "",
+        "lens": "",
+        "iso": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "focalLength": "",
+        "dateTaken": "2025-08-15",
+        "fileSize": "",
+        "dimensions": ""
+      },
+      "collection": "仙剑奇侠传七"
+    },
+    {
+      "id": "6560a01df269a2ee",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2024/仙剑奇侠传七/Story_016_mountain_landscape.png",
+      "title": "Mountain",
+      "categories": [
+        "Mountain",
+        "Landscape"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "Story_016_mountain_landscape.png",
+      "width": 1200,
+      "height": 800,
+      "exif": {
+        "camera": "",
+        "lens": "",
+        "iso": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "focalLength": "",
+        "dateTaken": "2025-08-15",
+        "fileSize": "",
+        "dimensions": ""
+      },
+      "collection": "仙剑奇侠传七"
+    },
+    {
+      "id": "caeae6be031da41b",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2024/游戏截图/Capture_008_protagonist_dawn_古风.png",
+      "title": "Protagonist",
+      "categories": [
+        "Protagonist",
+        "Dawn",
+        "古风"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "Capture_008_protagonist_dawn_古风.png",
+      "width": 1200,
+      "height": 800,
+      "exif": {
+        "camera": "",
+        "lens": "",
+        "iso": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "focalLength": "",
+        "dateTaken": "2025-08-15",
+        "fileSize": "",
+        "dimensions": ""
+      },
+      "collection": "游戏截图"
+    },
+    {
+      "id": "77ef7f884294c368",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2024/游戏截图/IMG_003_city_quest_npc.png",
+      "title": "City",
+      "categories": [
+        "City",
+        "Quest",
+        "Npc"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "IMG_003_city_quest_npc.png",
+      "width": 1200,
+      "height": 800,
+      "exif": {
+        "camera": "",
+        "lens": "",
+        "iso": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "focalLength": "",
+        "dateTaken": "2025-08-15",
+        "fileSize": "",
+        "dimensions": ""
+      },
+      "collection": "游戏截图"
+    },
+    {
+      "id": "d07591088acd007a",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2024/游戏截图/IMG_011_cutscene.png",
+      "title": "Cutscene",
+      "categories": [
+        "Cutscene"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "IMG_011_cutscene.png",
+      "width": 1200,
+      "height": 800,
+      "exif": {
+        "camera": "",
+        "lens": "",
+        "iso": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "focalLength": "",
+        "dateTaken": "2025-08-15",
+        "fileSize": "",
+        "dimensions": ""
+      },
+      "collection": "游戏截图"
+    },
+    {
+      "id": "5e3c45b1724db64e",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2024/游戏截图/PAL7_014_rain_sunset_仙境.png",
+      "title": "Rain",
+      "categories": [
+        "Rain",
+        "Sunset",
+        "仙境"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "PAL7_014_rain_sunset_仙境.png",
+      "width": 1200,
+      "height": 800,
+      "exif": {
+        "camera": "",
+        "lens": "",
+        "iso": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "focalLength": "",
+        "dateTaken": "2025-08-15",
+        "fileSize": "",
+        "dimensions": ""
+      },
+      "collection": "游戏截图"
+    },
+    {
+      "id": "78feb533ef7c2046",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/游戏世界/Character_012_peaceful.png",
+      "title": "Peaceful",
+      "categories": [
+        "Peaceful"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "Character_012_peaceful.png",
+      "width": 1200,
+      "height": 800,
+      "exif": {
+        "camera": "",
+        "lens": "",
+        "iso": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "focalLength": "",
+        "dateTaken": "2025-08-15",
+        "fileSize": "",
+        "dimensions": ""
+      },
+      "collection": "游戏世界"
+    },
+    {
+      "id": "2b0f4c03a9d64eda",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/游戏世界/Frame_018_city_cutscene_protagonist.png",
+      "title": "City",
+      "categories": [
+        "City",
+        "Cutscene",
+        "Protagonist"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "Frame_018_city_cutscene_protagonist.png",
+      "width": 1200,
+      "height": 800,
+      "exif": {
+        "camera": "",
+        "lens": "",
+        "iso": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "focalLength": "",
+        "dateTaken": "2025-08-15",
+        "fileSize": "",
+        "dimensions": ""
+      },
+      "collection": "游戏世界"
+    },
+    {
+      "id": "4ddf976d0621c5e0",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/游戏世界/PAL7_017_cutscene.png",
+      "title": "Cutscene",
+      "categories": [
+        "Cutscene"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "PAL7_017_cutscene.png",
+      "width": 1200,
+      "height": 800,
+      "exif": {
+        "camera": "",
+        "lens": "",
+        "iso": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "focalLength": "",
+        "dateTaken": "2025-08-15",
+        "fileSize": "",
+        "dimensions": ""
+      },
+      "collection": "游戏世界"
+    },
+    {
+      "id": "ec0e73ea8ce14858",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/游戏世界/Scene_006_山水.png",
+      "title": "山水",
+      "categories": [
+        "山水"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "Scene_006_山水.png",
+      "width": 1200,
+      "height": 800,
+      "exif": {
+        "camera": "",
+        "lens": "",
+        "iso": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "focalLength": "",
+        "dateTaken": "2025-08-15",
+        "fileSize": "",
+        "dimensions": ""
+      },
+      "collection": "游戏世界"
+    },
+    {
+      "id": "8ac1bdcd3311420a",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/虚拟摄影/Capture_015_cutscene.png",
+      "title": "Cutscene",
+      "categories": [
+        "Cutscene"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "Capture_015_cutscene.png",
+      "width": 1200,
+      "height": 800,
+      "exif": {
+        "camera": "",
+        "lens": "",
+        "iso": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "focalLength": "",
+        "dateTaken": "2025-08-15",
+        "fileSize": "",
+        "dimensions": ""
+      },
+      "collection": "虚拟摄影"
+    },
+    {
+      "id": "cd2c34c59dba1d91",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/虚拟摄影/Character_010_mountain_仙女.png",
+      "title": "Mountain",
+      "categories": [
+        "Mountain",
+        "仙女"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "Character_010_mountain_仙女.png",
+      "width": 1200,
+      "height": 800,
+      "exif": {
+        "camera": "",
+        "lens": "",
+        "iso": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "focalLength": "",
+        "dateTaken": "2025-08-15",
+        "fileSize": "",
+        "dimensions": ""
+      },
+      "collection": "虚拟摄影"
+    },
+    {
+      "id": "d881a9a8f900652c",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/虚拟摄影/Frame_004_修仙_warrior_epic.png",
+      "title": "修仙",
+      "categories": [
+        "修仙",
+        "Warrior",
+        "Epic"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "Frame_004_修仙_warrior_epic.png",
+      "width": 1200,
+      "height": 800,
+      "exif": {
+        "camera": "",
+        "lens": "",
+        "iso": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "focalLength": "",
+        "dateTaken": "2025-08-15",
+        "fileSize": "",
+        "dimensions": ""
+      },
+      "collection": "虚拟摄影"
+    },
+    {
+      "id": "1f15b3b94d9e9eb5",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/虚拟摄影/IMG_019_combat_dawn.png",
+      "title": "Combat",
+      "categories": [
+        "Combat",
+        "Dawn"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "IMG_019_combat_dawn.png",
+      "width": 1200,
+      "height": 800,
+      "exif": {
+        "camera": "",
+        "lens": "",
+        "iso": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "focalLength": "",
+        "dateTaken": "2025-08-15",
+        "fileSize": "",
+        "dimensions": ""
+      },
+      "collection": "虚拟摄影"
+    },
+    {
+      "id": "394b4e0cd318efd1",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/虚拟摄影/IMG_021_palace_武侠.png",
+      "title": "Palace",
+      "categories": [
+        "Palace",
+        "武侠"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "IMG_021_palace_武侠.png",
+      "width": 1200,
+      "height": 800,
+      "exif": {
+        "camera": "",
+        "lens": "",
+        "iso": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "focalLength": "",
+        "dateTaken": "2025-08-15",
+        "fileSize": "",
+        "dimensions": ""
+      },
+      "collection": "虚拟摄影"
+    },
+    {
+      "id": "eb6169427711b3e3",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/虚拟摄影/PAL7_002_epic_sunset_修仙.png",
+      "title": "Epic",
+      "categories": [
+        "Epic",
+        "Sunset",
+        "修仙"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "PAL7_002_epic_sunset_修仙.png",
+      "width": 1200,
+      "height": 800,
+      "exif": {
+        "camera": "",
+        "lens": "",
+        "iso": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "focalLength": "",
+        "dateTaken": "2025-08-15",
+        "fileSize": "",
+        "dimensions": ""
+      },
+      "collection": "虚拟摄影"
+    },
+    {
+      "id": "1b83686ede5f8dbc",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/虚拟摄影/Photo_007_mage.png",
+      "title": "Mage",
+      "categories": [
+        "Mage"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "Photo_007_mage.png",
+      "width": 1200,
+      "height": 800,
+      "exif": {
+        "camera": "",
+        "lens": "",
+        "iso": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "focalLength": "",
+        "dateTaken": "2025-08-15",
+        "fileSize": "",
+        "dimensions": ""
+      },
+      "collection": "虚拟摄影"
+    },
+    {
+      "id": "6543bc8e300da80b",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/虚拟摄影/Screenshot_005_snow.png",
+      "title": "Snow",
+      "categories": [
+        "Snow"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "Screenshot_005_snow.png",
+      "width": 1200,
+      "height": 800,
+      "exif": {
+        "camera": "",
+        "lens": "",
+        "iso": "",
+        "aperture": "",
+        "shutterSpeed": "",
+        "focalLength": "",
+        "dateTaken": "2025-08-15",
+        "fileSize": "",
+        "dimensions": ""
+      },
+      "collection": "虚拟摄影"
+    }
+  ],
+  "collections": [
+    {
+      "name": "RPG冒险",
+      "displayName": "RPG冒险",
+      "photoCount": 4,
+      "coverImage": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2024/RPG冒险/DSC_013_serene_mage.png",
+      "lastUpdated": "2025-08-15"
+    },
+    {
+      "name": "仙剑奇侠传七",
+      "displayName": "仙剑奇侠传七",
+      "photoCount": 2,
+      "coverImage": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2024/仙剑奇侠传七/Screenshot_009_mountain_江湖_serene.png",
+      "lastUpdated": "2025-08-15"
+    },
+    {
+      "name": "游戏截图",
+      "displayName": "游戏截图",
+      "photoCount": 4,
+      "coverImage": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2024/游戏截图/Capture_008_protagonist_dawn_古风.png",
+      "lastUpdated": "2025-08-15"
+    },
+    {
+      "name": "游戏世界",
+      "displayName": "游戏世界",
+      "photoCount": 4,
+      "coverImage": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/游戏世界/Character_012_peaceful.png",
+      "lastUpdated": "2025-08-15"
+    },
+    {
+      "name": "虚拟摄影",
+      "displayName": "虚拟摄影",
+      "photoCount": 8,
+      "coverImage": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/虚拟摄影/Capture_015_cutscene.png",
+      "lastUpdated": "2025-08-15"
+    }
+  ]
 }

@@ -66,51 +66,39 @@ function extractDisplayName(path) {
 // 从文件名生成标题
 function generateTitleFromFilename(filename) {
   const nameWithoutExt = path.parse(filename).name;
+  
   // 移除常见的图片命名前缀/后缀
   let cleaned = nameWithoutExt
-    .replace(/^(img|image|photo|pic)[-_]?/i, '')
+    .replace(/^(img|image|photo|pic|dsc|frame|capture|screenshot|scene|character|story|game|pal7?)[-_]?/i, '')
     .replace(/[-_]?(edited|final|export)$/i, '');
   
-  // 只保留第一个下划线或连字符之前的部分作为主标题
-  const parts = cleaned.split(/[-_]/);
-  const mainTitle = parts[0] || cleaned;
+  // 如果移除前缀后还有内容，提取标签部分作为标题
+  if (cleaned) {
+    const parts = cleaned.split(/[-_]/);
+    // 过滤掉数字和常见无意义词汇，保留有意义的标签
+    const meaningfulParts = parts.filter(part => 
+      part && 
+      part.length > 1 && 
+      !/^\d+$/.test(part) && 
+      !['copy', 'final', 'edit', 'new'].includes(part.toLowerCase())
+    );
+    
+    if (meaningfulParts.length > 0) {
+      // 使用第一个有意义的标签作为标题
+      const title = meaningfulParts[0];
+      return formatTagName(title);
+    }
+  }
   
-  // 格式化标题
-  const formatted = mainTitle
-    .replace(/([a-z])([A-Z])/g, '$1 $2') // 在小写字母和大写字母之间添加空格
-    .replace(/\b\w/g, l => l.toUpperCase()); // 首字母大写
+  // 如果没有找到有意义的内容，生成一个简单的编号标题
+  const collectionMatch = filename.match(/\/([\u4e00-\u9fff\w\s]+)\//);
+  const collectionName = collectionMatch ? collectionMatch[1] : '照片';
   
-  return formatted || 'Untitled';
-}
-
-// 生成模拟的EXIF数据
-function generateMockExif(filename, dateTaken) {
-  const cameras = [
-    'Canon EOS R5', 'Sony A7R IV', 'Nikon D850', 'Fujifilm X-T4',
-    'Leica Q2', 'Canon EOS R6', 'Sony A7 III', 'Nikon Z7',
-    'Olympus OM-D E-M1', 'Canon EOS 5D Mark IV'
-  ];
+  // 从文件名中提取数字作为编号
+  const numberMatch = nameWithoutExt.match(/\d+/);
+  const number = numberMatch ? numberMatch[0] : Math.floor(Math.random() * 999) + 1;
   
-  const lenses = [
-    '24-70mm f/2.8', '85mm f/1.4', '16-35mm f/2.8', '50mm f/1.2',
-    '28mm f/1.7', '70-200mm f/2.8', '24-105mm f/4', '100mm f/2.8 Macro',
-    '14-24mm f/2.8', '60mm f/2.8 Macro'
-  ];
-  
-  const camera = cameras[Math.floor(Math.random() * cameras.length)];
-  const lens = lenses[Math.floor(Math.random() * lenses.length)];
-  
-  return {
-    camera,
-    lens,
-    iso: [100, 200, 400, 800, 1600, 3200][Math.floor(Math.random() * 6)],
-    aperture: ['f/1.4', 'f/2', 'f/2.8', 'f/4', 'f/5.6', 'f/8', 'f/11'][Math.floor(Math.random() * 7)],
-    shutterSpeed: ['1/1000', '1/500', '1/250', '1/125', '1/60', '1/30'][Math.floor(Math.random() * 6)],
-    focalLength: `${Math.floor(Math.random() * 300) + 14}mm`,
-    dateTaken,
-    fileSize: `${(Math.random() * 15 + 2).toFixed(1)} MB`,
-    dimensions: `${Math.floor(Math.random() * 3000) + 3000} × ${Math.floor(Math.random() * 2000) + 2000}`
-  };
+  return `${collectionName} ${number}`;
 }
 
 // 扫描目录获取图片文件
@@ -151,15 +139,25 @@ function scanDirectory(dir, baseUrl = '') {
           id,
           src: `${baseUrl}/${urlPath}`,
           title: generateTitleFromFilename(item),
-          categories: extractTagsFromFilename(item), // 使用文件名标签作为分类
+          categories: extractTagsFromFilename(item),
           photographer: 'Unknown',
-          likes: Math.floor(Math.random() * 1000) + 50,
-          description: `一张精美的摄影作品，使用专业设备拍摄。`,
+          likes: 0, // 不再生成随机点赞数
+          description: ``,
           filename: item,
-          width: Math.floor(Math.random() * 1000) + 600,
-          height: Math.floor(Math.random() * 1000) + 400,
-          exif: generateMockExif(item, dateTaken),
-          collection: collection // 添加合集信息
+          width: 1200, // 使用固定尺寸而不是随机
+          height: 800,
+          exif: {
+            camera: '',
+            lens: '',
+            iso: '',
+            aperture: '',
+            shutterSpeed: '',
+            focalLength: '',
+            dateTaken,
+            fileSize: '',
+            dimensions: ''
+          },
+          collection: collection
         };
         
         photos.push(photo);
@@ -170,21 +168,14 @@ function scanDirectory(dir, baseUrl = '') {
   return photos;
 }
 
-// 主函数
-function main() {
-  const args = process.argv.slice(2);
-  const config = {
-    photosDir: args[0] || './photos',
-    outputFile: args[1] || './gallery-index.json',
-    baseUrl: args[2] || 'https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main'
-  };
+// 运行生成器并显示详细信息
+function runGenerator(photosDir, outputFile, baseUrl) {
+  console.log('🚀 开始生成照片索引...\n');
+  console.log(`📁 扫描目录: ${photosDir}`);
+  console.log(`📄 输出文件: ${outputFile}`);
+  console.log(`🌐 基础URL: ${baseUrl}\n`);
   
-  console.log('生成画廊索引...');
-  console.log(`扫描目录: ${config.photosDir}`);
-  console.log(`输出文件: ${config.outputFile}`);
-  console.log(`基础URL: ${config.baseUrl}`);
-  
-  const photos = scanDirectory(config.photosDir, config.baseUrl);
+  const photos = scanDirectory(photosDir, baseUrl);
   
   // 生成合集信息
   const collectionsMap = new Map();
@@ -192,8 +183,8 @@ function main() {
     if (photo.collection) {
       if (!collectionsMap.has(photo.collection)) {
         collectionsMap.set(photo.collection, {
-          name: photo.collection, // 已经是简洁的名称了
-          displayName: photo.collection, // 直接使用collection作为displayName
+          name: photo.collection,
+          displayName: photo.collection,
           photoCount: 0,
           coverImage: photo.src,
           lastUpdated: photo.exif.dateTaken
@@ -222,17 +213,21 @@ function main() {
   };
   
   // 确保输出目录存在
-  const outputDir = path.dirname(config.outputFile);
+  const outputDir = path.dirname(outputFile);
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
   }
   
-  fs.writeFileSync(config.outputFile, JSON.stringify(galleryData, null, 2));
+  fs.writeFileSync(outputFile, JSON.stringify(galleryData, null, 2));
   
   console.log(`✅ 成功生成索引文件！`);
   console.log(`📸 总计 ${photos.length} 张图片`);
   console.log(`📁 合集: ${collections.length} 个`);
-  console.log(`🏷️ 分类: ${[...new Set(photos.flatMap(p => p.categories))].join(', ')}`);
+  
+  const categories = [...new Set(photos.flatMap(p => p.categories))];
+  if (categories.length > 0) {
+    console.log(`🏷️ 分类: ${categories.join(', ')}`);
+  }
   
   // 显示合集统计
   if (collections.length > 0) {
@@ -241,6 +236,20 @@ function main() {
       console.log(`   - ${collection.displayName}: ${collection.photoCount} 张`);
     });
   }
+  
+  console.log(`\n📄 输出文件: ${outputFile}`);
+}
+
+// 主函数
+function main() {
+  const args = process.argv.slice(2);
+  const config = {
+    photosDir: args[0] || './photos',
+    outputFile: args[1] || './gallery-index.json',
+    baseUrl: args[2] || 'https://raw.githubusercontent.com/DuranceX/BlogImages/main'
+  };
+  
+  runGenerator(config.photosDir, config.outputFile, config.baseUrl);
 }
 
 if (require.main === module) {
@@ -249,8 +258,9 @@ if (require.main === module) {
 
 module.exports = { 
   scanDirectory, 
-  generateMockExif, 
   extractTagsFromFilename,
   extractCollectionFromPath,
-  extractDisplayName
+  extractDisplayName,
+  generateTitleFromFilename,
+  runGenerator
 };

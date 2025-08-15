@@ -262,8 +262,9 @@ function formatTagName(tag: string): string {
  * 生成collection的URL友好slug
  */
 export function generateCollectionSlug(collectionName: string): string {
-  // 处理混合中英文的情况，保持原有大小写
+  // 现在collectionName已经是简洁的名称了，直接使用
   return collectionName
+    .toLowerCase()
     .replace(/\s+/g, '-')
     .replace(/[^\w\u4e00-\u9fff-]/g, '')
     .replace(/-+/g, '-')
@@ -286,12 +287,7 @@ export async function getCollectionNameFromSlug(slug: string): Promise<string> {
       }
     }
     // 如果没找到，尝试简单的解码和替换
-    // 但是由于我们现在保持原有大小写，slug可能就是原名称
-    const decodedSlug = decodeURIComponent(slug)
-    if (decodedSlug.includes('-')) {
-      return decodedSlug.replace(/-/g, ' ')
-    }
-    return decodedSlug
+    return decodeURIComponent(slug).replace(/-/g, ' ')
   } catch (error) {
     console.error('Error getting collection name from slug:', error)
     return decodeURIComponent(slug).replace(/-/g, ' ')
