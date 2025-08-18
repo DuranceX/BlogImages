@@ -20,7 +20,7 @@ import {
   Eye,
 } from "lucide-react"
 import Image from "next/image"
-import type { Photo } from "@/lib/gallery-data" // 导入 Photo 接口
+import type { Photo } from "@/lib/mock-photos" // 导入 Photo 接口
 import type { HTMLDivElement } from "react"
 
 interface PhotoGridProps {
@@ -75,82 +75,6 @@ export default function PhotoGrid({ initialPhotos, selectedCategory, onCategoryC
   // Photos to display based on infinite scroll
   const displayedPhotos = filteredPhotos.slice(0, currentPage * itemsPerPage)
   const hasMore = currentPage * itemsPerPage < filteredPhotos.length
-
-  // Masonry layout with row-first ordering
-  const [masonryLayout, setMasonryLayout] = useState<{photo: Photo, x: number, y: number}[]>([])
-  const [containerHeight, setContainerHeight] = useState(0)
-  const [columns, setColumns] = useState(4)
-
-  // Get current screen size columns
-  const getColumns = () => {
-    if (typeof window === 'undefined') return 4
-    const width = window.innerWidth
-    if (width < 640) return 1      // sm
-    if (width < 1024) return 2     // lg  
-    if (width < 1280) return 3     // xl
-    return 4
-  }
-
-  // Calculate masonry layout with row-first ordering
-  useEffect(() => {
-    if (typeof window === 'undefined') return
-    
-    const cols = getColumns()
-    setColumns(cols)
-    
-    const columnHeights = new Array(cols).fill(0)
-    const layoutItems: {photo: Photo, x: number, y: number}[] = []
-    const gap = 12 // 3 * 4px
-    const containerWidth = window.innerWidth < 640 ? window.innerWidth - 48 : 
-                          window.innerWidth < 1024 ? window.innerWidth - 48 :
-                          Math.min(1200, window.innerWidth - 48)
-    const columnWidth = (containerWidth - gap * (cols - 1)) / cols
-
-    // Row-first distribution: assign each photo to the shortest column
-    displayedPhotos.forEach((photo, index) => {
-      // Find the shortest column
-      const shortestColumnIndex = columnHeights.indexOf(Math.min(...columnHeights))
-      
-      // Calculate position
-      const x = shortestColumnIndex * (columnWidth + gap)
-      const y = columnHeights[shortestColumnIndex]
-      
-      // Calculate height based on aspect ratio
-      const aspectRatio = photo.height / photo.width
-      const height = columnWidth * aspectRatio
-      
-      layoutItems.push({
-        photo,
-        x,
-        y
-      })
-      
-      // Update column height
-      columnHeights[shortestColumnIndex] += height + gap
-    })
-    
-    setMasonryLayout(layoutItems)
-    setContainerHeight(Math.max(...columnHeights))
-  }, [displayedPhotos, selectedCategory])
-
-  // Handle window resize
-  useEffect(() => {
-    if (typeof window === 'undefined') return
-    
-    const handleResize = () => {
-      // Trigger layout recalculation
-      setMasonryLayout([])
-      setTimeout(() => {
-        const cols = getColumns()
-        setColumns(cols)
-      }, 100)
-    }
-    
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
-
-  const reorderedPhotos = displayedPhotos // Keep original order for navigation
 
   // Intersection Observer for infinite scrolling
   useEffect(() => {
@@ -210,16 +134,16 @@ export default function PhotoGrid({ initialPhotos, selectedCategory, onCategoryC
   const navigatePhoto = (direction: "prev" | "next") => {
     if (!selectedPhoto) return
 
-    const currentIndex = reorderedPhotos.findIndex((p) => p.id === selectedPhoto.id)
+    const currentIndex = filteredPhotos.findIndex((p) => p.id === selectedPhoto.id)
     let newIndex
 
     if (direction === "prev") {
-      newIndex = currentIndex > 0 ? currentIndex - 1 : reorderedPhotos.length - 1
+      newIndex = currentIndex > 0 ? currentIndex - 1 : filteredPhotos.length - 1
     } else {
-      newIndex = currentIndex < reorderedPhotos.length - 1 ? currentIndex + 1 : 0
+      newIndex = currentIndex < filteredPhotos.length - 1 ? currentIndex + 1 : 0
     }
 
-    setSelectedPhoto(reorderedPhotos[newIndex])
+    setSelectedPhoto(filteredPhotos[newIndex])
     setIsFullScreen(false)
   }
 
@@ -262,7 +186,7 @@ export default function PhotoGrid({ initialPhotos, selectedCategory, onCategoryC
 
     document.addEventListener("keydown", handleKeyDown)
     return () => document.removeEventListener("keydown", handleKeyDown)
-  }, [selectedPhoto, reorderedPhotos, isFullScreen])
+  }, [selectedPhoto, filteredPhotos, isFullScreen])
 
   return (
     <>
@@ -270,24 +194,19 @@ export default function PhotoGrid({ initialPhotos, selectedCategory, onCategoryC
         {customStyles}
       </style>
       <main className="container mx-auto px-6 py-6 relative">
-        <div className="relative" style={{ height: containerHeight }}>
-          {masonryLayout.map((item) => (
+        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-3 space-y-3">
+          {displayedPhotos.map((photo) => (
             <Card
-              key={item.photo.id}
-              className="group cursor-pointer overflow-hidden border border-neutral-800 bg-neutral-900/50 hover:bg-neutral-800/50 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-black/20 rounded-lg absolute"
-              style={{
-                left: item.x,
-                top: item.y,
-                width: `calc((100% - ${(columns - 1) * 12}px) / ${columns})`
-              }}
-              onClick={() => openModal(item.photo)}
+              key={photo.id}
+              className="group cursor-pointer overflow-hidden border border-neutral-800 bg-neutral-900/50 hover:bg-neutral-800/50 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-black/20 rounded-lg break-inside-avoid mb-3"
+              onClick={() => openModal(photo)}
             >
               <div className="relative overflow-hidden">
                 <Image
-                  src={item.photo.src || "/placeholder.svg"}
-                  alt={item.photo.title}
-                  width={item.photo.width}
-                  height={item.photo.height}
+                  src={photo.src || "/placeholder.svg"}
+                  alt={photo.title}
+                  width={photo.width}
+                  height={photo.height}
                   className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   loading="lazy"
@@ -301,7 +220,7 @@ export default function PhotoGrid({ initialPhotos, selectedCategory, onCategoryC
                 <div className="absolute inset-0 p-4 flex flex-col justify-between opacity-0 group-hover:opacity-100 transition-all duration-300">
                   <div className="flex justify-between items-start">
                     <div className="flex flex-wrap gap-1">
-                      {item.photo.categories.slice(0, 2).map((category) => (
+                      {photo.categories.slice(0, 2).map((category) => (
                         <Badge
                           key={category}
                           variant="secondary"
@@ -321,25 +240,25 @@ export default function PhotoGrid({ initialPhotos, selectedCategory, onCategoryC
                       className="h-8 w-8 p-0 bg-black/60 hover:bg-black/80 rounded-full backdrop-blur-sm"
                       onClick={(e) => {
                         e.stopPropagation()
-                        toggleLike(item.photo.id)
+                        toggleLike(photo.id)
                       }}
                     >
                       <Heart
                         className={`h-4 w-4 transition-colors ${
-                          likedPhotos.has(item.photo.id) ? "fill-red-500 text-red-500" : "text-white"
+                          likedPhotos.has(photo.id) ? "fill-red-500 text-red-500" : "text-white"
                         }`}
                       />
                     </Button>
                   </div>
 
                   <div className="text-white">
-                    <h3 className="font-medium text-sm mb-1">{item.photo.title}</h3>
+                    <h3 className="font-medium text-sm mb-1">{photo.title}</h3>
                     <div className="flex items-center justify-between text-xs opacity-80">
                       <div className="flex items-center space-x-1">
                         <Heart className="h-3 w-3" />
-                        <span>{item.photo.likes}</span>
+                        <span>{photo.likes}</span>
                       </div>
-                      <span>{item.photo.exif.camera}</span>
+                      <span>{photo.exif.camera}</span>
                     </div>
                   </div>
                 </div>
@@ -355,17 +274,17 @@ export default function PhotoGrid({ initialPhotos, selectedCategory, onCategoryC
         )}
 
         {!hasMore && filteredPhotos.length > 0 && (
-          <div className="text-center py-8 text-neutral-500 text-sm">已浏览完所有照片</div>
+          <div className="text-center py-8 text-neutral-500 text-sm">You've reached the end of the collection.</div>
         )}
 
         {filteredPhotos.length === 0 && (
           <div className="text-center py-20">
             <Camera className="h-12 w-12 text-neutral-600 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-neutral-400 mb-2">暂无照片</h3>
+            <h3 className="text-lg font-medium text-neutral-400 mb-2">No photos found</h3>
             <p className="text-neutral-600 text-sm">
               {selectedCategory === "All"
-                ? "合集暂时为空"
-                : `${selectedCategory} 分类下暂无照片`}
+                ? "The collection appears to be empty"
+                : `No photos found in the ${selectedCategory} category`}
             </p>
           </div>
         )}
