@@ -100,7 +100,7 @@ export default function PhotoGrid({ initialPhotos, selectedCategory, onCategoryC
     
     const columnHeights = new Array(cols).fill(0)
     const layoutItems: {photo: Photo, x: number, y: number}[] = []
-    const gap = 12 // 3 * 4px
+    const gap = 16 // 4 * 4px - increased spacing
     const containerWidth = window.innerWidth < 640 ? window.innerWidth - 48 : 
                           window.innerWidth < 1024 ? window.innerWidth - 48 :
                           Math.min(1200, window.innerWidth - 48)
@@ -278,7 +278,7 @@ export default function PhotoGrid({ initialPhotos, selectedCategory, onCategoryC
               style={{
                 left: item.x,
                 top: item.y,
-                width: `calc((100% - ${(columns - 1) * 12}px) / ${columns})`
+                width: `calc((100% - ${(columns - 1) * 16}px) / ${columns})`
               }}
               onClick={() => openModal(item.photo)}
             >

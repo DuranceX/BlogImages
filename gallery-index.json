@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2025-08-18T09:38:25.710Z",
-  "totalPhotos": 24,
+  "lastUpdated": "2025-08-18T12:34:03.261Z",
+  "totalPhotos": 60,
   "photos": [
     {
       "id": "fd119d3dde6f61ed",
@@ -645,6 +645,438 @@
       "collection": "虚拟摄影"
     },
     {
+      "id": "80947440a4c4134d",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/1-1_环形公路.jpg",
+      "title": "1 1",
+      "categories": [
+        "环形公路"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "1-1_环形公路.jpg",
+      "width": 8064,
+      "height": 4536,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/4000s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-10",
+        "location": "",
+        "fileSize": "5.8 MB",
+        "dimensions": "8064 × 4536"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "7e4ab266588e52f6",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/1-2_环形公路.jpg",
+      "title": "1 2",
+      "categories": [
+        "环形公路"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "1-2_环形公路.jpg",
+      "width": 8064,
+      "height": 4536,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 110",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/4000s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-10",
+        "location": "",
+        "fileSize": "4.7 MB",
+        "dimensions": "8064 × 4536"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "cd6463f4985a81ca",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/1-3_环形公路.jpg",
+      "title": "1 3",
+      "categories": [
+        "环形公路"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "1-3_环形公路.jpg",
+      "width": 8064,
+      "height": 4536,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/5000s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-10",
+        "location": "",
+        "fileSize": "3.3 MB",
+        "dimensions": "8064 × 4536"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "d6a9c020eaa83cba",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/1-4_环形公路.jpg",
+      "title": "1 4",
+      "categories": [
+        "环形公路"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "1-4_环形公路.jpg",
+      "width": 4032,
+      "height": 2268,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/5000s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-10",
+        "location": "",
+        "fileSize": "1.1 MB",
+        "dimensions": "4032 × 2268"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "3ff46a6c8417ea03",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/2-1_环形公路.jpg",
+      "title": "2 1",
+      "categories": [
+        "环形公路"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "2-1_环形公路.jpg",
+      "width": 8064,
+      "height": 4536,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 110",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/3200s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-10",
+        "location": "",
+        "fileSize": "4.5 MB",
+        "dimensions": "8064 × 4536"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "80c2c9cf58f60769",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/2-2_环形公路.jpg",
+      "title": "2 2",
+      "categories": [
+        "环形公路"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "2-2_环形公路.jpg",
+      "width": 7762,
+      "height": 4366,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/6000s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-10",
+        "location": "",
+        "fileSize": "3.1 MB",
+        "dimensions": "7762 × 4366"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "59156d5054064ef6",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/2-3_环形公路.jpg",
+      "title": "2 3",
+      "categories": [
+        "环形公路"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "2-3_环形公路.jpg",
+      "width": 7708,
+      "height": 4336,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/3000s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-10",
+        "location": "",
+        "fileSize": "4.9 MB",
+        "dimensions": "7708 × 4336"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "0984599f65f3517d",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/3-1_环形公路.jpg",
+      "title": "3 1",
+      "categories": [
+        "环形公路"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "3-1_环形公路.jpg",
+      "width": 8064,
+      "height": 4536,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/3200s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-10",
+        "location": "",
+        "fileSize": "5.6 MB",
+        "dimensions": "8064 × 4536"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "4dd477d767cedc47",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/3-2_环形公路.jpg",
+      "title": "3 2",
+      "categories": [
+        "环形公路"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "3-2_环形公路.jpg",
+      "width": 8064,
+      "height": 4536,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/4000s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-10",
+        "location": "",
+        "fileSize": "5.5 MB",
+        "dimensions": "8064 × 4536"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "7bb0acba8890b83b",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/3-3_环形公路.jpg",
+      "title": "3 3",
+      "categories": [
+        "环形公路"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "3-3_环形公路.jpg",
+      "width": 8064,
+      "height": 4536,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/3200s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-10",
+        "location": "",
+        "fileSize": "5 MB",
+        "dimensions": "8064 × 4536"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "721eeab60f1c218a",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/3-4_环形公路.jpg",
+      "title": "3 4",
+      "categories": [
+        "环形公路"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "3-4_环形公路.jpg",
+      "width": 8064,
+      "height": 4536,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/4000s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-10",
+        "location": "",
+        "fileSize": "3.9 MB",
+        "dimensions": "8064 × 4536"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "0e3bd059dc20a847",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/3-5_环形公路.jpg",
+      "title": "3 5",
+      "categories": [
+        "环形公路"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "3-5_环形公路.jpg",
+      "width": 8064,
+      "height": 4536,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/5000s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-10",
+        "location": "",
+        "fileSize": "4.4 MB",
+        "dimensions": "8064 × 4536"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "2aa100a376f327b1",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/4-1_环形公路.jpg",
+      "title": "4 1",
+      "categories": [
+        "环形公路"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "4-1_环形公路.jpg",
+      "width": 7726,
+      "height": 4346,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/4000s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-10",
+        "location": "",
+        "fileSize": "2.4 MB",
+        "dimensions": "7726 × 4346"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "f24fbee3e4e20b3b",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/4-2_环形公路.jpg",
+      "title": "4 2",
+      "categories": [
+        "环形公路"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "4-2_环形公路.jpg",
+      "width": 6155,
+      "height": 3462,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/4000s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-10",
+        "location": "",
+        "fileSize": "1.8 MB",
+        "dimensions": "6155 × 3462"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "61e99bfa652b167f",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/4-3_环形公路.jpg",
+      "title": "4 3",
+      "categories": [
+        "环形公路"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "4-3_环形公路.jpg",
+      "width": 7666,
+      "height": 4312,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/6000s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-10",
+        "location": "",
+        "fileSize": "2.5 MB",
+        "dimensions": "7666 × 4312"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "ce75ba3daed584e9",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/5-1_环形公路.jpg",
+      "title": "5 1",
+      "categories": [
+        "环形公路"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "5-1_环形公路.jpg",
+      "width": 8064,
+      "height": 4536,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/5000s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-10",
+        "location": "",
+        "fileSize": "4.5 MB",
+        "dimensions": "8064 × 4536"
+      },
+      "collection": "青甘"
+    },
+    {
       "id": "03a4a4a4f2e3be35",
       "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2024/Unsplash/lake_test.jpg",
       "title": "lake",
@@ -670,6 +1102,546 @@
         "dimensions": "4096 × 2304"
       },
       "collection": "Unsplash"
+    },
+    {
+      "id": "4f7f58845479662e",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/DJI_20250609100447_0031_D.jpg",
+      "title": "DJI 20250609100447 0031 D",
+      "categories": [
+        "其他"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "DJI_20250609100447_0031_D.jpg",
+      "width": 4032,
+      "height": 2268,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/6400s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-09",
+        "location": "",
+        "fileSize": "466.8 KB",
+        "dimensions": "4032 × 2268"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "706995cd4006a6ce",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/DJI_20250609171232_0049_D_翡翠湖.jpg",
+      "title": "DJI 20250609171232 0049 D",
+      "categories": [
+        "翡翠湖"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "DJI_20250609171232_0049_D_翡翠湖.jpg",
+      "width": 8064,
+      "height": 4536,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/2500s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-09",
+        "location": "",
+        "fileSize": "3.2 MB",
+        "dimensions": "8064 × 4536"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "3c344be615b06b35",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/DJI_20250609171819_0056_D_翡翠湖.jpg",
+      "title": "DJI 20250609171819 0056 D",
+      "categories": [
+        "翡翠湖"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "DJI_20250609171819_0056_D_翡翠湖.jpg",
+      "width": 8064,
+      "height": 4536,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/4000s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-09",
+        "location": "",
+        "fileSize": "2.2 MB",
+        "dimensions": "8064 × 4536"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "3901733442e17a06",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/DJI_20250609172012_0059_D_翡翠湖.jpg",
+      "title": "DJI 20250609172012 0059 D",
+      "categories": [
+        "翡翠湖"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "DJI_20250609172012_0059_D_翡翠湖.jpg",
+      "width": 8064,
+      "height": 4536,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/5000s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-09",
+        "location": "",
+        "fileSize": "2.3 MB",
+        "dimensions": "8064 × 4536"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "a1cc211cb37c0a45",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/DJI_20250609182537_0076_D_翡翠湖.jpg",
+      "title": "DJI 20250609182537 0076 D",
+      "categories": [
+        "翡翠湖"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "DJI_20250609182537_0076_D_翡翠湖.jpg",
+      "width": 8064,
+      "height": 4536,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/1600s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-09",
+        "location": "",
+        "fileSize": "2.3 MB",
+        "dimensions": "8064 × 4536"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "b7200f07feab2fa5",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/DJI_20250609182552_0077_D_翡翠湖.jpg",
+      "title": "DJI 20250609182552 0077 D",
+      "categories": [
+        "翡翠湖"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "DJI_20250609182552_0077_D_翡翠湖.jpg",
+      "width": 8064,
+      "height": 4536,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/2000s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-09",
+        "location": "",
+        "fileSize": "3 MB",
+        "dimensions": "8064 × 4536"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "cffc219163b179c9",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/DJI_20250609182616_0078_D_翡翠湖.jpg",
+      "title": "DJI 20250609182616 0078 D",
+      "categories": [
+        "翡翠湖"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "DJI_20250609182616_0078_D_翡翠湖.jpg",
+      "width": 8064,
+      "height": 4536,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/2500s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-09",
+        "location": "",
+        "fileSize": "3.4 MB",
+        "dimensions": "8064 × 4536"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "1b3e991dda7a7264",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/DJI_20250609183250_0094_D_翡翠湖.jpg",
+      "title": "DJI 20250609183250 0094 D",
+      "categories": [
+        "翡翠湖"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "DJI_20250609183250_0094_D_翡翠湖.jpg",
+      "width": 8064,
+      "height": 4536,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/3200s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-09",
+        "location": "",
+        "fileSize": "3.3 MB",
+        "dimensions": "8064 × 4536"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "81b5cf856b53b436",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/DJI_20250609183914_0097_D_翡翠湖.jpg",
+      "title": "DJI 20250609183914 0097 D",
+      "categories": [
+        "翡翠湖"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "DJI_20250609183914_0097_D_翡翠湖.jpg",
+      "width": 5864,
+      "height": 3299,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 110",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/2500s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-09",
+        "location": "",
+        "fileSize": "1.3 MB",
+        "dimensions": "5864 × 3299"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "b3090bd7245bad25",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/DSC01678.jpg",
+      "title": "DSC01678",
+      "categories": [
+        "其他"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "DSC01678.jpg",
+      "width": 4889,
+      "height": 3249,
+      "exif": {
+        "camera": "SONY NEX-5N",
+        "lens": "E 18-55mm F3.5-5.6 OSS",
+        "iso": "ISO 100",
+        "aperture": "f/4.5",
+        "shutterSpeed": "1/1600s",
+        "focalLength": "18mm",
+        "dateTaken": "2025-06-09",
+        "location": "",
+        "fileSize": "420.8 KB",
+        "dimensions": "4889 × 3249"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "78c0b2eb39c7b10d",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/IMG_20250609_173405.jpg",
+      "title": "IMG 20250609 173405",
+      "categories": [
+        "其他"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "IMG_20250609_173405.jpg",
+      "width": 4096,
+      "height": 2304,
+      "exif": {
+        "camera": "Xiaomi 22101316C",
+        "lens": "",
+        "iso": "ISO 57",
+        "aperture": "f/1.9",
+        "shutterSpeed": "1/4000s",
+        "focalLength": "5.59mm",
+        "dateTaken": "2025-06-09",
+        "location": "",
+        "fileSize": "777.3 KB",
+        "dimensions": "4096 × 2304"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "2bfa0de9ae368ffd",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/DJI_20250608102705_0004_D_青海湖.jpg",
+      "title": "DJI 20250608102705 0004 D",
+      "categories": [
+        "青海湖"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "DJI_20250608102705_0004_D_青海湖.jpg",
+      "width": 8064,
+      "height": 4536,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/4000s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-08",
+        "location": "",
+        "fileSize": "4.8 MB",
+        "dimensions": "8064 × 4536"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "ed4aa012f9f3b8aa",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/DJI_20250608152607_0015_D_青海湖.jpg",
+      "title": "DJI 20250608152607 0015 D",
+      "categories": [
+        "青海湖"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "DJI_20250608152607_0015_D_青海湖.jpg",
+      "width": 4032,
+      "height": 2268,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/1500s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-08",
+        "location": "",
+        "fileSize": "398 KB",
+        "dimensions": "4032 × 2268"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "035d25887315910e",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/DJI_20250608152632_0016_D_青海湖.jpg",
+      "title": "DJI 20250608152632 0016 D",
+      "categories": [
+        "青海湖"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "DJI_20250608152632_0016_D_青海湖.jpg",
+      "width": 4032,
+      "height": 2268,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/2000s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-08",
+        "location": "",
+        "fileSize": "645.3 KB",
+        "dimensions": "4032 × 2268"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "c9dddaf40009cc2f",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/DJI_20250608152646_0017_D_青海湖.jpg",
+      "title": "DJI 20250608152646 0017 D",
+      "categories": [
+        "青海湖"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "DJI_20250608152646_0017_D_青海湖.jpg",
+      "width": 4032,
+      "height": 2268,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/1500s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-08",
+        "location": "",
+        "fileSize": "397.5 KB",
+        "dimensions": "4032 × 2268"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "99a33fac45147f18",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/DJI_20250608152753_0019_D_青海湖.jpg",
+      "title": "DJI 20250608152753 0019 D",
+      "categories": [
+        "青海湖"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "DJI_20250608152753_0019_D_青海湖.jpg",
+      "width": 4032,
+      "height": 2268,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/1250s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-08",
+        "location": "",
+        "fileSize": "340.3 KB",
+        "dimensions": "4032 × 2268"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "c501bd828a13b5b0",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/DJI_20250608152909_0020_D_青海湖.jpg",
+      "title": "DJI 20250608152909 0020 D",
+      "categories": [
+        "青海湖"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "DJI_20250608152909_0020_D_青海湖.jpg",
+      "width": 4032,
+      "height": 2268,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/1500s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-08",
+        "location": "",
+        "fileSize": "594.3 KB",
+        "dimensions": "4032 × 2268"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "e0fe411e99a6a184",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/DJI_20250608152932_0021_D_青海湖.jpg",
+      "title": "DJI 20250608152932 0021 D",
+      "categories": [
+        "青海湖"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "DJI_20250608152932_0021_D_青海湖.jpg",
+      "width": 4032,
+      "height": 2268,
+      "exif": {
+        "camera": "DJI FC8582",
+        "lens": "24.0 mm f/1.7",
+        "iso": "ISO 100",
+        "aperture": "f/1.7",
+        "shutterSpeed": "1/2000s",
+        "focalLength": "6.72mm",
+        "dateTaken": "2025-06-08",
+        "location": "",
+        "fileSize": "347.2 KB",
+        "dimensions": "4032 × 2268"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "bc4d37674485b730",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/DSC01616.jpg",
+      "title": "DSC01616",
+      "categories": [
+        "其他"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "DSC01616.jpg",
+      "width": 4912,
+      "height": 3264,
+      "exif": {
+        "camera": "SONY NEX-5N",
+        "lens": "E 18-55mm F3.5-5.6 OSS",
+        "iso": "ISO 100",
+        "aperture": "f/5.6",
+        "shutterSpeed": "1/1000s",
+        "focalLength": "55mm",
+        "dateTaken": "2025-06-08",
+        "location": "",
+        "fileSize": "834.1 KB",
+        "dimensions": "4912 × 3264"
+      },
+      "collection": "青甘"
+    },
+    {
+      "id": "8c004a1fa5bcb04e",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/DSC01622.jpg",
+      "title": "DSC01622",
+      "categories": [
+        "其他"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "DSC01622.jpg",
+      "width": 3264,
+      "height": 4912,
+      "exif": {
+        "camera": "SONY NEX-5N",
+        "lens": "E 18-55mm F3.5-5.6 OSS",
+        "iso": "ISO 100",
+        "aperture": "f/3.5",
+        "shutterSpeed": "1/2500s",
+        "focalLength": "18mm",
+        "dateTaken": "2025-06-08",
+        "location": "",
+        "fileSize": "2.2 MB",
+        "dimensions": "3264 × 4912"
+      },
+      "collection": "青甘"
     }
   ],
   "collections": [
@@ -714,6 +1686,13 @@
       "photoCount": 8,
       "coverImage": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/虚拟摄影/Capture_015_cutscene.png",
       "lastUpdated": "2025-08-15"
+    },
+    {
+      "name": "青甘",
+      "displayName": "青甘",
+      "photoCount": 36,
+      "coverImage": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2025/青甘/1-1_环形公路.jpg",
+      "lastUpdated": "2025-06-10"
     }
   ]
 }
