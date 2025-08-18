@@ -335,7 +335,7 @@ export default function PhotoGrid({ initialPhotos, selectedCategory, onCategoryC
                   alt={selectedPhoto.title}
                   width={1200}
                   height={800}
-                  className="max-w-full object-contain rounded-lg shadow-2xl transition-all duration-300 cursor-pointer"
+                  className="max-w-full max-h-[50vh] lg:max-h-[80vh] object-contain rounded-lg shadow-2xl transition-all duration-300 cursor-pointer"
                   onClick={toggleFullScreen}
                   onError={(e) => {
                     const target = e.target as HTMLImageElement

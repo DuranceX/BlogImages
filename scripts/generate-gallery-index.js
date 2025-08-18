@@ -11,6 +11,13 @@ try {
   console.log('Sharp not available, using fallback dimensions');
 }
 
+let exifr;
+try {
+  exifr = require('exifr');
+} catch (error) {
+  console.log('exifr not available, using fallback EXIF data');
+}
+
 // 支持的图片格式
 const SUPPORTED_FORMATS = ['.jpg', '.jpeg', '.png', '.webp', '.gif'];
 
@@ -125,7 +132,7 @@ function generateTitleFromFilename(filename) {
   return nameWithoutExt;
 }
 
-// 获取图片信息（尺寸和文件大小）
+// 获取图片信息（尺寸、文件大小和EXIF数据）
 async function getImageInfo(filePath) {
   try {
     const stat = fs.statSync(filePath);
@@ -142,6 +149,7 @@ async function getImageInfo(filePath) {
     
     let width = 1200;
     let height = 800;
+    let exifData = null;
     
     // 如果有sharp库，获取真实的图片尺寸
     if (sharp) {
@@ -151,26 +159,128 @@ async function getImageInfo(filePath) {
         height = metadata.height || 800;
       } catch (sharpError) {
         console.log(`Failed to get dimensions for ${filePath}:`, sharpError.message);
-        // 使用合理的随机尺寸作为fallback
-        width = null;
-        height = null;
       }
-    } else {
-      // 没有sharp时使用合理的随机尺寸
-      width = null;
-      height = null;
+    }
+    
+    // 如果有exifr库，获取EXIF数据
+    if (exifr) {
+      try {
+        exifData = await exifr.parse(filePath, {
+          tiff: true,
+          exif: true,
+          gps: true,
+          iptc: false,
+          icc: false,
+          jfif: false,
+          ihdr: false
+        });
+        console.log(`EXIF data for ${path.basename(filePath)}:`, exifData ? 'found' : 'none');
+      } catch (exifError) {
+        console.log(`Failed to get EXIF data for ${filePath}:`, exifError.message);
+      }
+    }
+    
+    // 格式化日期
+    const formatDate = (date) => {
+      if (!date) return null;
+      if (typeof date === 'string') {
+        // 尝试解析字符串格式的日期
+        const parsedDate = new Date(date.replace(/:/g, '-').replace(' ', 'T'));
+        return isNaN(parsedDate) ? null : parsedDate.toISOString().split('T')[0];
+      }
+      if (date instanceof Date) {
+        return isNaN(date) ? null : date.toISOString().split('T')[0];
+      }
+      return null;
+    };
+    
+    // 提取EXIF信息
+    let dateTaken = null;
+    let camera = '';
+    let lens = '';
+    let iso = '';
+    let aperture = '';
+    let shutterSpeed = '';
+    let focalLength = '';
+    let location = '';
+    
+    if (exifData) {
+      // 拍摄时间优先级：DateTimeOriginal > DateTime > CreateDate
+      dateTaken = formatDate(exifData.DateTimeOriginal || exifData.DateTime || exifData.CreateDate);
+      
+      // 相机信息
+      camera = exifData.Make && exifData.Model ? `${exifData.Make} ${exifData.Model}` : (exifData.Model || '');
+      
+      // 镜头信息
+      lens = exifData.LensModel || exifData.LensMake || '';
+      
+      // ISO
+      iso = exifData.ISO ? `ISO ${exifData.ISO}` : '';
+      
+      // 光圈
+      aperture = exifData.FNumber ? `f/${exifData.FNumber}` : (exifData.ApertureValue ? `f/${exifData.ApertureValue}` : '');
+      
+      // 快门速度
+      if (exifData.ExposureTime) {
+        if (exifData.ExposureTime < 1) {
+          shutterSpeed = `1/${Math.round(1 / exifData.ExposureTime)}s`;
+        } else {
+          shutterSpeed = `${exifData.ExposureTime}s`;
+        }
+      } else if (exifData.ShutterSpeedValue) {
+        shutterSpeed = `1/${Math.round(Math.pow(2, exifData.ShutterSpeedValue))}s`;
+      }
+      
+      // 焦距
+      focalLength = exifData.FocalLength ? `${exifData.FocalLength}mm` : '';
+      
+      // GPS位置信息
+      if (exifData.latitude && exifData.longitude) {
+        location = `${exifData.latitude.toFixed(6)}, ${exifData.longitude.toFixed(6)}`;
+      }
+    }
+    
+    // 如果没有从EXIF获取到拍摄时间，使用文件修改时间
+    if (!dateTaken) {
+      dateTaken = stat.mtime.toISOString().split('T')[0];
     }
     
     return {
       fileSize: formatFileSize(fileSizeBytes),
       width,
-      height
+      height,
+      exif: {
+        camera,
+        lens,
+        iso,
+        aperture,
+        shutterSpeed,
+        focalLength,
+        dateTaken,
+        location,
+        fileSize: formatFileSize(fileSizeBytes),
+        dimensions: `${width} × ${height}`
+      }
     };
   } catch (error) {
+    console.error(`Error getting image info for ${filePath}:`, error);
+    const fallbackDate = new Date().toISOString().split('T')[0];
     return {
       fileSize: '0 MB',
       width: 1200,
-      height: 800
+      height: 800,
+      exif: {
+        camera: '',
+        lens: '',
+        iso: '',
+        aperture: '',
+        shutterSpeed: '',
+        focalLength: '',
+        dateTaken: fallbackDate,
+        location: '',
+        fileSize: '0 MB',
+        dimensions: '1200 × 800'
+      }
     };
   }
 }
@@ -203,10 +313,10 @@ async function scanDirectory(dir, baseUrl = '') {
         // 生成唯一ID
         const id = crypto.createHash('md5').update(urlPath).digest('hex').substring(0, 16);
         
-        // 获取文件修改时间作为拍摄时间
-        const dateTaken = stat.mtime.toISOString().split('T')[0];
+        // 获取文件修改时间作为备用拍摄时间
+        const fileDate = stat.mtime.toISOString().split('T')[0];
         
-        // 获取图片信息
+        // 获取图片信息（包括EXIF数据）
         const imageInfo = await getImageInfo(fullPath);
         
         // 提取合集信息
@@ -223,17 +333,7 @@ async function scanDirectory(dir, baseUrl = '') {
           filename: item,
           width: imageInfo.width,
           height: imageInfo.height,
-          exif: {
-            camera: '',
-            lens: '',
-            iso: '',
-            aperture: '',
-            shutterSpeed: '',
-            focalLength: '',
-            dateTaken,
-            fileSize: imageInfo.fileSize,
-            dimensions: `${imageInfo.width} × ${imageInfo.height}`
-          },
+          exif: imageInfo.exif,
           collection: collection
         };
         
@@ -271,7 +371,7 @@ async function runGenerator(photosDir, outputFile, baseUrl) {
       const collection = collectionsMap.get(photo.collection);
       collection.photoCount++;
       
-      // 更新最新时间
+      // 更新最新时间（使用EXIF中的拍摄时间）
       if (photo.exif.dateTaken > collection.lastUpdated) {
         collection.lastUpdated = photo.exif.dateTaken;
       }

@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2025-08-15T10:00:27.569Z",
-  "totalPhotos": 23,
+  "lastUpdated": "2025-08-18T09:38:25.710Z",
+  "totalPhotos": 24,
   "photos": [
     {
       "id": "fd119d3dde6f61ed",
@@ -24,6 +24,7 @@
         "shutterSpeed": "",
         "focalLength": "",
         "dateTaken": "2025-08-15",
+        "location": "",
         "fileSize": "5.1 MB",
         "dimensions": "1920 × 1080"
       },
@@ -50,6 +51,7 @@
         "shutterSpeed": "",
         "focalLength": "",
         "dateTaken": "2025-08-15",
+        "location": "",
         "fileSize": "3.1 MB",
         "dimensions": "1920 × 1080"
       },
@@ -78,6 +80,7 @@
         "shutterSpeed": "",
         "focalLength": "",
         "dateTaken": "2025-08-15",
+        "location": "",
         "fileSize": "3.5 MB",
         "dimensions": "1920 × 1080"
       },
@@ -104,6 +107,7 @@
         "shutterSpeed": "",
         "focalLength": "",
         "dateTaken": "2025-08-15",
+        "location": "",
         "fileSize": "5.2 MB",
         "dimensions": "1920 × 1080"
       },
@@ -130,6 +134,7 @@
         "shutterSpeed": "",
         "focalLength": "",
         "dateTaken": "2025-08-15",
+        "location": "",
         "fileSize": "1.1 MB",
         "dimensions": "1948 × 2939"
       },
@@ -158,6 +163,7 @@
         "shutterSpeed": "",
         "focalLength": "",
         "dateTaken": "2025-08-15",
+        "location": "",
         "fileSize": "4 MB",
         "dimensions": "1920 × 1080"
       },
@@ -185,6 +191,7 @@
         "shutterSpeed": "",
         "focalLength": "",
         "dateTaken": "2025-08-15",
+        "location": "",
         "fileSize": "4.1 MB",
         "dimensions": "1920 × 1080"
       },
@@ -213,6 +220,7 @@
         "shutterSpeed": "",
         "focalLength": "",
         "dateTaken": "2025-08-15",
+        "location": "",
         "fileSize": "4.9 MB",
         "dimensions": "1920 × 1080"
       },
@@ -241,6 +249,7 @@
         "shutterSpeed": "",
         "focalLength": "",
         "dateTaken": "2025-08-15",
+        "location": "",
         "fileSize": "4.7 MB",
         "dimensions": "1920 × 1080"
       },
@@ -267,6 +276,7 @@
         "shutterSpeed": "",
         "focalLength": "",
         "dateTaken": "2025-08-15",
+        "location": "",
         "fileSize": "3.2 MB",
         "dimensions": "1920 × 1080"
       },
@@ -295,6 +305,7 @@
         "shutterSpeed": "",
         "focalLength": "",
         "dateTaken": "2025-08-15",
+        "location": "",
         "fileSize": "4.1 MB",
         "dimensions": "1920 × 1080"
       },
@@ -321,6 +332,7 @@
         "shutterSpeed": "",
         "focalLength": "",
         "dateTaken": "2025-08-15",
+        "location": "",
         "fileSize": "4.2 MB",
         "dimensions": "1920 × 1080"
       },
@@ -349,6 +361,7 @@
         "shutterSpeed": "",
         "focalLength": "",
         "dateTaken": "2025-08-15",
+        "location": "",
         "fileSize": "4.7 MB",
         "dimensions": "1920 × 1080"
       },
@@ -375,6 +388,7 @@
         "shutterSpeed": "",
         "focalLength": "",
         "dateTaken": "2025-08-15",
+        "location": "",
         "fileSize": "2.3 MB",
         "dimensions": "1920 × 1080"
       },
@@ -401,6 +415,7 @@
         "shutterSpeed": "",
         "focalLength": "",
         "dateTaken": "2025-08-15",
+        "location": "",
         "fileSize": "4.8 MB",
         "dimensions": "1920 × 1080"
       },
@@ -427,6 +442,7 @@
         "shutterSpeed": "",
         "focalLength": "",
         "dateTaken": "2025-08-15",
+        "location": "",
         "fileSize": "4.8 MB",
         "dimensions": "1920 × 1080"
       },
@@ -454,6 +470,7 @@
         "shutterSpeed": "",
         "focalLength": "",
         "dateTaken": "2025-08-15",
+        "location": "",
         "fileSize": "3.4 MB",
         "dimensions": "1920 × 1080"
       },
@@ -482,6 +499,7 @@
         "shutterSpeed": "",
         "focalLength": "",
         "dateTaken": "2025-08-15",
+        "location": "",
         "fileSize": "5.1 MB",
         "dimensions": "1920 × 1080"
       },
@@ -509,6 +527,7 @@
         "shutterSpeed": "",
         "focalLength": "",
         "dateTaken": "2025-08-15",
+        "location": "",
         "fileSize": "4.8 MB",
         "dimensions": "1920 × 1080"
       },
@@ -536,6 +555,7 @@
         "shutterSpeed": "",
         "focalLength": "",
         "dateTaken": "2025-08-15",
+        "location": "",
         "fileSize": "2.8 MB",
         "dimensions": "1920 × 1080"
       },
@@ -564,6 +584,7 @@
         "shutterSpeed": "",
         "focalLength": "",
         "dateTaken": "2025-08-15",
+        "location": "",
         "fileSize": "5.9 MB",
         "dimensions": "1920 × 1080"
       },
@@ -590,6 +611,7 @@
         "shutterSpeed": "",
         "focalLength": "",
         "dateTaken": "2025-08-15",
+        "location": "",
         "fileSize": "3.8 MB",
         "dimensions": "1920 × 1080"
       },
@@ -616,10 +638,38 @@
         "shutterSpeed": "",
         "focalLength": "",
         "dateTaken": "2025-08-15",
+        "location": "",
         "fileSize": "5.9 MB",
         "dimensions": "1920 × 1080"
       },
       "collection": "虚拟摄影"
+    },
+    {
+      "id": "03a4a4a4f2e3be35",
+      "src": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2024/Unsplash/lake_test.jpg",
+      "title": "lake",
+      "categories": [
+        "Test"
+      ],
+      "photographer": "Unknown",
+      "likes": 0,
+      "description": "",
+      "filename": "lake_test.jpg",
+      "width": 4096,
+      "height": 2304,
+      "exif": {
+        "camera": "",
+        "lens": "",
+        "iso": "ISO 57",
+        "aperture": "f/1.9",
+        "shutterSpeed": "1/4000s",
+        "focalLength": "5.59mm",
+        "dateTaken": "2025-06-09",
+        "location": "",
+        "fileSize": "777.3 KB",
+        "dimensions": "4096 × 2304"
+      },
+      "collection": "Unsplash"
     }
   ],
   "collections": [
@@ -633,7 +683,7 @@
     {
       "name": "Unsplash",
       "displayName": "Unsplash",
-      "photoCount": 1,
+      "photoCount": 2,
       "coverImage": "https://raw.githubusercontent.com/DuranceX/BlogImages/main/photos/2024/Unsplash/Firework_test.jpg",
       "lastUpdated": "2025-08-15"
     },

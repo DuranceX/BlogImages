@@ -31,20 +31,21 @@ export default function NewestPhotosPage() {
     async function loadPhotos() {
       try {
         setLoading(true)
-        console.log('Starting to load gallery data...')
+        console.log('Starting to load gallery data from GitHub...')
         
-        // 直接从本地JSON文件加载数据
-        const response = await fetch('/gallery-index.json', {
+        // 从GitHub获取数据
+        const githubUrl = 'https://raw.githubusercontent.com/DuranceX/BlogImages/main/gallery-index.json'
+        const response = await fetch(githubUrl, {
           cache: 'no-cache'
         })
         console.log('Fetch response status:', response.status)
         
         if (!response.ok) {
-          throw new Error(`Failed to load gallery data: ${response.status}`)
+          throw new Error(`Failed to load gallery data from GitHub: ${response.status}`)
         }
         
         const data = await response.json()
-        console.log('Loaded gallery data:', data.totalPhotos, 'photos')
+        console.log('Loaded gallery data from GitHub:', data.totalPhotos, 'photos')
         console.log('Photos array length:', data.photos?.length)
         
         setPhotos(data.photos || [])

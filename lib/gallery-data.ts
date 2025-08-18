@@ -59,25 +59,13 @@ function getGalleryIndexUrl(): string {
 }
 
 /**
- * 从JSON文件获取画廊数据（优先使用本地，然后尝试远程）
+ * 从GitHub获取画廊数据
  */
 export async function fetchGalleryData(): Promise<GalleryData> {
   try {
-    // 首先尝试从本地文件加载
-    try {
-      const localResponse = await fetch('/gallery-index.json')
-      if (localResponse.ok) {
-        const data: GalleryData = await localResponse.json()
-        console.log('Loaded gallery data from local file')
-        return data
-      }
-    } catch (localError) {
-      console.log('Local gallery data not found, trying remote...')
-    }
-    
-    // 本地文件不存在或加载失败时，尝试从远程加载
+    // 直接从GitHub远程获取数据
     const indexUrl = getGalleryIndexUrl()
-    console.log('Fetching gallery data from:', indexUrl)
+    console.log('Fetching gallery data from GitHub:', indexUrl)
     
     const response = await fetch(indexUrl, {
       next: { revalidate: 300 }, // 5分钟缓存
@@ -87,7 +75,7 @@ export async function fetchGalleryData(): Promise<GalleryData> {
     })
     
     if (!response.ok) {
-      throw new Error(`Failed to fetch gallery data: ${response.status} ${response.statusText}`)
+      throw new Error(`Failed to fetch gallery data from GitHub: ${response.status} ${response.statusText}`)
     }
     
     const data: GalleryData = await response.json()
@@ -97,9 +85,10 @@ export async function fetchGalleryData(): Promise<GalleryData> {
       throw new Error('Invalid gallery data format')
     }
     
+    console.log('Successfully loaded gallery data from GitHub:', data.totalPhotos, 'photos')
     return data
   } catch (error) {
-    console.error('Error fetching gallery data:', error)
+    console.error('Error fetching gallery data from GitHub:', error)
     
     // 如果获取远程数据失败，返回空数据
     return {
